@@ -1,0 +1,22 @@
+name: setup-node
+description: Setup Node.js ⚙️
+runs:
+  using: composite
+  steps:
+    - name: Setup Node.js ⚙️
+      uses: actions/setup-node@39370e3970a6d050c480ffad4ff0ed4d3fdee5af #v4.1.0
+      with:
+        node-version: 20
+
+    - name: Cache deps 📦
+      id: cache_dependencies
+      uses: actions/cache@6849a6489940f00c2f30c0fb92c6274307ccb58a #v4.1.2
+      with:
+        path: node_modules
+        key: node-modules-${{ hashFiles('package-lock.json') }}
+
+    - name: Install dependencies 🛠️
+      shell: bash
+      if: steps.cache_dependencies.outputs.cache-hit != 'true'
+      run: npm ci
+
