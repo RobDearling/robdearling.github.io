@@ -16,10 +16,8 @@
   }
 }
 
-
-
 body {
-  color: rgb(var(--foreground-rgb));
+  color: #fff;
   background-color:#18181b
 }
 

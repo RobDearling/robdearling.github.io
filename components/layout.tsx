@@ -38,12 +38,10 @@ export default function Layout({ children, home }: LayoutProps) {
               </Link>
               <Link className={`text-sm ml-2 ${pathname === '/blog' ? 'text-sky-400' : ''}`} href="/blog">Blog</Link>
               <Link className={`text-sm ml-2 ${pathname === '/riddles' ? 'text-sky-400' : ''}`} href={`/riddles`}>Riddles</Link> 
-
             </div>
           </nav>
         </header>
-      <main className="container mx-auto mt-4 lg:mt-16 px-4 lg:px-64 xl:px-64 mb-4">{children}</main>
-
+      <main className="container mx-auto mt-4 lg:mt-12 px-4 lg:px-64 xl:px-64 mb-4">{children}</main>
     </div>
   );
 }
