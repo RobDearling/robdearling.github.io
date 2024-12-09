@@ -33,6 +33,22 @@ body {
   margin-top: -8px;
 }
 
+.social-icons {
+  font-size: 14px;
+  color:#535e6f
+}
+
+.social-icons a {
+  margin-right: 10px;
+  margin-top: 25px;
+  display: inline-flex
+}
+
+.social-icons a svg {
+  width: 26px;
+  height: 26px;
+}
+
 .nav-item:hover {
   background-color: #313741;
 }

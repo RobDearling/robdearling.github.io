@@ -24,6 +24,8 @@ export default function Post({ postData }: { postData: PostData }) {
     <Layout>
       <Head>
         <title>{postData.title}</title>
+        <meta name="description" content={postData.title}></meta>
+        <meta property="og:description" content={postData.title}></meta>
       </Head>
       <article>
         <h1 className='text-4xl font-bold'>{postData.title}</h1>
