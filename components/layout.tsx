@@ -15,7 +15,7 @@ export default function Layout({ children, home }: LayoutProps) {
   const pathname = usePathname()
   return (
     <div lang='en'>
-      {pathname === '/christmas' && <Snowfall snowflakeCount={250}/>}
+      {pathname === '/christmas' && <Snowfall snowflakeCount={150}/>}
       <Head>
       <link rel="icon" href="/favicon.ico" />
       <meta
