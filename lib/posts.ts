@@ -3,16 +3,16 @@ import path from 'path';
 import matter from 'gray-matter';
 import { remark } from 'remark';
 import html from 'remark-html';
+import prism from 'remark-prism';
 
 const postsDirectory = path.join(process.cwd(), 'posts');
 
 export function getSortedPostsData() {
-  // Get file names under /posts
   const fileNames = fs.readdirSync(postsDirectory);
   type PostData = {
     id: string;
     date: string;
-    [key: string]: any;
+    [key: string]: string;
   };
 
   const allPostsData: PostData[] = fileNames.map((fileName) => {
@@ -36,7 +36,6 @@ export function getSortedPostsData() {
   });
 }
 
-
 export function getAllPostIds() {
   const fileNames = fs.readdirSync(postsDirectory);
   return fileNames.map((fileName) => {
@@ -55,6 +54,7 @@ export async function getPostData(id: string) {
 
   const processedContent = await remark()
     .use(html)
+    .use(prism)
     .process(matterResult.content);
   const contentHtml = processedContent.toString();
 

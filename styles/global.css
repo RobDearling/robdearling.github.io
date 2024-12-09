@@ -18,7 +18,7 @@
 
 body {
   color: #fff;
-  background-color: #1D2228
+  background-color: #1d2228;
 }
 
 @layer utilities {
@@ -30,7 +30,7 @@ body {
 .nav-item {
   padding: 2px 14px;
   border-radius: 24px;
-  margin-top: -8px
+  margin-top: -8px;
 }
 
 .nav-item:hover {
@@ -43,4 +43,198 @@ body {
 
 .button-bg {
   background-color: #313741;
+}
+
+article p {
+  font-size: 1.14rem;
+  margin-top: 18px;
+  margin-bottom: 18px;
+}
+
+article > h2 {
+  font-size: 2.25rem;
+  line-height: 2.5rem;
+}
+
+article a {
+	font-weight: 600;
+	color: rgb(56 189 248 / var(--tw-text-opacity, 1));
+	text-decoration: underline;
+	text-decoration-color: #313741;
+	text-decoration-thickness: 2px;
+	text-underline-offset: 5px;
+}
+
+article ul {
+	margin: 15px 0px;
+}
+
+article li {
+	margin-top: 5px;
+	margin-bottom: 5px;
+	margin-left: 25px;
+	list-style-type: disc;
+}
+
+article li::marker {
+	color: #38bdf8; /* Change this to your desired color */
+	font-size: 1.2em; /* Change this to your desired size */
+}
+
+pre[class*="language-"] {
+  background: #313741 !important;
+  padding: 24px;
+  border-radius: 20px;
+  margin: 20px 0px !important;
+}
+
+#blog-content > h2 {
+  font-size: 2rem;
+  line-height: 2.5rem;
+  margin: 15px 0px;
+  font-weight: 600;
+}
+
+:not(pre) > code {
+	background: #313741;
+	padding: 2px 8px;
+	border-radius: 3px;
+}
+
+code[class*="language-"],
+pre[class*="language-"] {
+  color: #c5c8c6;
+  text-shadow: 0 1px rgba(0, 0, 0, 0.3);
+  font-family: Inconsolata, Monaco, Consolas, "Courier New", Courier, monospace;
+  direction: ltr;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  line-height: 1.5;
+
+  -moz-tab-size: 4;
+  -o-tab-size: 4;
+  tab-size: 4;
+
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+  padding: 1em;
+  margin: 0.5em 0;
+  overflow: auto;
+  border-radius: 0.3em;
+}
+
+:not(pre) > code[class*="language-"],
+pre[class*="language-"] {
+  background: #1d1f21;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+  padding: 0.1em;
+  border-radius: 0.3em;
+}
+
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+  color: #7c7c7c;
+}
+
+.token.punctuation {
+  color: #c5c8c6;
+}
+
+.namespace {
+  opacity: 0.7;
+}
+
+.token.property,
+.token.keyword,
+.token.tag {
+  color: #96cbfe;
+}
+
+.token.class-name {
+  color: #ffffb6;
+  text-decoration: underline;
+}
+
+.token.boolean,
+.token.constant {
+  color: #99cc99;
+}
+
+.token.symbol,
+.token.deleted {
+  color: #f92672;
+}
+
+.token.number {
+  color: #ff73fd;
+}
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+  color: #a8ff60;
+}
+
+.token.variable {
+  color: #c6c5fe;
+}
+
+.token.operator {
+  color: #ededed;
+}
+
+.token.entity {
+  color: #ffffb6;
+  cursor: help;
+}
+
+.token.url {
+  color: #96cbfe;
+}
+
+.language-css .token.string,
+.style .token.string {
+  color: #87c38a;
+}
+
+.token.atrule,
+.token.attr-value {
+  color: #f9ee98;
+}
+
+.token.function {
+  color: #dad085;
+}
+
+.token.regex {
+  color: #e9c062;
+}
+
+.token.important {
+  color: #fd971f;
+}
+
+.token.important,
+.token.bold {
+  font-weight: bold;
+}
+
+.token.italic {
+  font-style: italic;
 }
