@@ -24,18 +24,20 @@ export default function Layout({ children, home }: LayoutProps) {
         <meta name="og:title" content={siteTitle} />
         <meta name="twitter:card" content="summary_large_image" />
       </Head>
-      <header  className="container mx-auto mt-4">
-          <nav>
-            <div className="mt-4 lg:mt-16 px-4 lg:px-64 xl:px-64 mb-4 flex flex-row items-center gap-1">
-              <Link className={`text-sm ${pathname === '/' ? 'text-sky-400' : ''}`} href="/">
+      <header className="container mx-auto mt-4">
+          <nav className='flex justify-between mt-4 lg:mt-16 px-4 lg:px-64 xl:px-64 mb-4 text-lg'>
+            <Link href="/" id='title' className='font-bold'>WreckItRob<span className='text-sky-400'>.</span>dev</Link>
+            <div className="flex flex-row items-center font-semibold">
+              <Link className={`nav-item ${pathname === '/' ? 'nav-active' : ''}`} href="/">
                 Home
               </Link>
-              <Link className={`text-sm ml-2 ${pathname === '/blog' ? 'text-sky-400' : ''}`} href="/blog">Blog</Link>
-              <Link className={`text-sm ml-2 ${pathname === '/riddles' ? 'text-sky-400' : ''}`} href={`/riddles`}>Riddles</Link> 
+              <Link className={`nav-item ${pathname === '/blog' ? 'nav-active' : ''}`} href="/blog">Blog</Link>
+              <Link className={`nav-item ${pathname === '/riddles' ? 'nav-active' : ''}`} href={`/riddles`}>Riddles</Link> 
             </div>
           </nav>
         </header>
-      <main className="container mx-auto mt-4 lg:mt-12 px-4 lg:px-64 xl:px-64 mb-4">{children}</main>
+      <main className="container mx-auto mt-32 lg:mt-32 px-4 lg:px-64 xl:px-64 mb-4">{children}</main>
     </div>
   );
 }
+// #1D2228

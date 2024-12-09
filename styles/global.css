@@ -18,11 +18,29 @@
 
 body {
   color: #fff;
-  background-color:#18181b
+  background-color: #1D2228
 }
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
   }
+}
+
+.nav-item {
+  padding: 2px 14px;
+  border-radius: 24px;
+  margin-top: -8px
+}
+
+.nav-item:hover {
+  background-color: #313741;
+}
+
+.nav-active {
+  background-color: #313741;
+}
+
+.button-bg {
+  background-color: #313741;
 }

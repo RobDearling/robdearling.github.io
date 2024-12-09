@@ -193,7 +193,7 @@ export default function Riddles() {
           <div className="mt-8 text-sky-400">
             {revealed && <p className="text-3xl">{currentRiddle.answer}</p>}
           </div>
-          {!revealed ? <button onClick={revealAnswer}>Reveal Answer</button> : null}
+          {!revealed ? <button className="button-bg font-bold px-6 py-3 rounded-3xl" onClick={revealAnswer}>Reveal Answer</button> : null}
         </div>
       ) : (
         <p>Loading...</p>
