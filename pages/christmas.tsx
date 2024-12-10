@@ -17,8 +17,8 @@ const triviaQuestions: ChristmasTriviaQuestion[] = [
   },
   {
     question:
-      "Which country started the tradition of putting up a Christmas tree?",
-    answer: "Germany",
+      "In the song '12 Days of Christmas' if you added up all the gifts, how many would you have received?",
+    answer: "364",
     day: 10,
   },
   {

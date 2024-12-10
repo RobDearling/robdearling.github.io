@@ -44,6 +44,10 @@ body {
   display: inline-flex
 }
 
+.social-icons a:hover {
+  color: #fff;
+}
+
 .social-icons a svg {
   width: 26px;
   height: 26px;
