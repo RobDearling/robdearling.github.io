@@ -14,3 +14,4 @@ date: '2024-12-09'
 
 - Actually blogged for the first time 🎉
 - I bought a server from [RackNerd](https://www.racknerd.com/) they had a crazy black Friday deal where I managed to snap up a 2.5GB, 2 Core KVM VPS for year for the price of £15 🫨. I've not decided what I'm going to host there at the moment...
+- 
