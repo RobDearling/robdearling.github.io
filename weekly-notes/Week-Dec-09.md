@@ -10,6 +10,7 @@ date: '2024-12-09'
 - [Kirby CMS](https://getkirby.com/) Looks extremely interesting. The entire CMS is file based so you're not locked into a Vendors modelling of your data but the price is just too high for something I'm doing as a hobby.
 - I read Murat Buffalos post titled [Advice to the young](https://muratbuffalo.blogspot.com/2024/07/advice-to-young.html?ref=dailydev) again.
 - Microsoft released a [Local Emulator for Azure Service Bus](https://techcommunity.microsoft.com/blog/messagingonazureblog/introducing-local-emulator-for-azure-service-bus/4304457) which is awesome.
+- Explored [Microplane](https://github.com/clever/microplane?tab=readme-ov-file) which seems like a cool project to automate mass updating Git repos. I started building something similar in .NET a while back so I'm interested to see how this works out.
 
 ## What I did this week
 
