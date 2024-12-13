@@ -11,8 +11,11 @@ date: '2024-12-09'
 - I read Murat Buffalos post titled [Advice to the young](https://muratbuffalo.blogspot.com/2024/07/advice-to-young.html?ref=dailydev) again.
 - Microsoft released a [Local Emulator for Azure Service Bus](https://techcommunity.microsoft.com/blog/messagingonazureblog/introducing-local-emulator-for-azure-service-bus/4304457) which is awesome.
 - Explored [Microplane](https://github.com/clever/microplane?tab=readme-ov-file) which seems like a cool project to automate mass updating Git repos. I started building something similar in .NET a while back so I'm interested to see how this works out.
+- Finally tried out Cursor after a few recommendations. So far it is better/more convenient than standard co-pilot but I'm unsure if it warrants $20/mo better. I plan on trying it out some more however.
 
 ## What I did this week
 
 - Actually blogged for the first time 🎉
-- I bought a server from [RackNerd](https://www.racknerd.com/) they had a crazy black Friday deal where I managed to snap up a 2.5GB, 2 Core KVM VPS for year for the price of £15 🫨. I've not decided what I'm going to host there at the moment...
+- I bought a server from [RackNerd](https://www.racknerd.com/) they had a good black Friday deal where I managed to snap up a 2.5GB, 2 Core KVM VPS for year for the price of £15 🫨. I've not decided what I'm going to host there at the moment...
+- Read into what options Azure has in terms of hosting SQL databases
+- Created a Christmas trivia page for a bit of fun at the end of standups.
