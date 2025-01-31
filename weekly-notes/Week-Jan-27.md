@@ -1,0 +1,12 @@
+---
+title: 'Week commencing 27/01/2025'
+date: '2025-01-27'
+---
+
+## Sites & Articles that interested me
+
+- [Ephemeral secets in Terraform](https://www.hashicorp.com/blog/terraform-1-10-improves-handling-secrets-in-state-with-ephemeral-values)
+
+## What I did this week
+
+- Got back to writing code this week 🤠
