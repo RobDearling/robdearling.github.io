@@ -102,6 +102,42 @@ article li::marker {
 	font-size: 1.2em; /* Change this to your desired size */
 }
 
+/* Table styles for markdown tables */
+article table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  background-color: #1d2228;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+article th,
+article td {
+  padding: 12px 16px;
+  text-align: left;
+  border-bottom: 1px solid #313741;
+}
+
+article th {
+  background-color: #313741;
+  font-weight: 600;
+  color: #38bdf8;
+  border-bottom: 2px solid #38bdf8;
+}
+
+article tr:nth-child(even) {
+  background-color: rgba(49, 55, 65, 0.3);
+}
+
+article tr:hover {
+  background-color: rgba(56, 189, 248, 0.1);
+}
+
+article td {
+  font-size: 0.95rem;
+}
+
 pre[class*="language-"] {
   background: #313741 !important;
   padding: 24px;

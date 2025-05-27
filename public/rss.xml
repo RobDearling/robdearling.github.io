@@ -2,16 +2,16 @@
     <channel>
         <title><![CDATA[Rob Dearling's Blog]]></title>
         <description><![CDATA[A blog about technology, development, and other interesting topics]]></description>
-        <link>https://robdearling.github.io</link>
+        <link>https://wreckitrob.dev</link>
         <image>
-            <url>https://robdearling.github.io/favicon.ico</url>
+            <url>https://wreckitrob.dev/favicon.ico</url>
             <title>Rob Dearling&apos;s Blog</title>
-            <link>https://robdearling.github.io</link>
+            <link>https://wreckitrob.dev</link>
         </image>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Tue, 27 May 2025 11:00:37 GMT</lastBuildDate>
-        <atom:link href="https://robdearling.github.io/rss.xml" rel="self" type="application/rss+xml"/>
-        <pubDate>Tue, 27 May 2025 11:00:37 GMT</pubDate>
+        <lastBuildDate>Tue, 27 May 2025 11:39:04 GMT</lastBuildDate>
+        <atom:link href="https://wreckitrob.dev/rss.xml" rel="self" type="application/rss+xml"/>
+        <pubDate>Tue, 27 May 2025 11:39:04 GMT</pubDate>
         <copyright><![CDATA[Copyright 2025, Rob Dearling]]></copyright>
         <language><![CDATA[en-US]]></language>
         <managingEditor><![CDATA[Rob Dearling]]></managingEditor>
@@ -21,18 +21,26 @@
         <category><![CDATA[Development]]></category>
         <category><![CDATA[Programming]]></category>
         <item>
+            <title><![CDATA[Moving to Azure DNS]]></title>
+            <description><![CDATA[Recently I switched this website's DNS from Cloudflare to Azure It's not that there's anything wrong with Cloudflare, but I wanted to try out different techn...]]></description>
+            <link>https://wreckitrob.dev/posts/moving-to-azure-dns</link>
+            <guid isPermaLink="false">https://wreckitrob.dev/posts/moving-to-azure-dns</guid>
+            <dc:creator><![CDATA[Rob Dearling]]></dc:creator>
+            <pubDate>Tue, 27 May 2025 00:00:00 GMT</pubDate>
+        </item>
+        <item>
             <title><![CDATA[Using Cloudflare R2 as a Terraform backend]]></title>
             <description><![CDATA[When creating this website, I decided to work with a tech stack that I'm not familiar with(Within certain boundaries). Typically, while working with Terrafor...]]></description>
-            <link>https://robdearling.github.io/posts/using-r2-for-tf-state</link>
-            <guid isPermaLink="false">https://robdearling.github.io/posts/using-r2-for-tf-state</guid>
+            <link>https://wreckitrob.dev/posts/using-r2-for-tf-state</link>
+            <guid isPermaLink="false">https://wreckitrob.dev/posts/using-r2-for-tf-state</guid>
             <dc:creator><![CDATA[Rob Dearling]]></dc:creator>
             <pubDate>Mon, 09 Dec 2024 00:00:00 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[Building a site with technology I dont use]]></title>
             <description><![CDATA[When building this site I decided I was going to use it as a way to learn and play with technology that I typically wouldn't use within my daily work tech st...]]></description>
-            <link>https://robdearling.github.io/posts/building-a-site-with-technology-i-dont-use</link>
-            <guid isPermaLink="false">https://robdearling.github.io/posts/building-a-site-with-technology-i-dont-use</guid>
+            <link>https://wreckitrob.dev/posts/building-a-site-with-technology-i-dont-use</link>
+            <guid isPermaLink="false">https://wreckitrob.dev/posts/building-a-site-with-technology-i-dont-use</guid>
             <dc:creator><![CDATA[Rob Dearling]]></dc:creator>
             <pubDate>Sun, 08 Dec 2024 00:00:00 GMT</pubDate>
         </item>

@@ -4,6 +4,7 @@ import matter from 'gray-matter';
 import { remark } from 'remark';
 import html from 'remark-html';
 import remarkPrism from 'remark-prism';
+import remarkGfm from 'remark-gfm';
 
 const postsDirectory = path.join(process.cwd(), 'posts');
 
@@ -53,6 +54,7 @@ export async function getPostData(id: string) {
   const matterResult = matter(fileContents);
 
   const processedContent = await remark()
+    .use(remarkGfm)
     .use(html)
     .use(remarkPrism as any)
     .process(matterResult.content);
