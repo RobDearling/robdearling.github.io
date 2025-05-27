@@ -21,3 +21,6 @@ These records will need to be moved over to Azure DNS to keep the website runnin
 ## Creating the DNS Zone in Azure
 
 First, we will need to create a DNS Zone in Azure. Azure offers two types of DNS Zones: public and private. For this website, we'll be using a public DNS Zone to manage its DNS records.
+
+An Azure DNS zone is a collection of DNS settings for a single domain within Azure. Within the zone, there are groups of records named recordsets, each recordset can contain 0-n individual records.
+
