@@ -45,7 +45,7 @@ function extractDescription(content) {
 
 function generateRSSFeed() {
   const posts = getSortedPostsData();
-  const siteURL = 'https://robdearling.github.io'; // Update this to your actual domain
+  const siteURL = 'https://wreckitrob.dev';
   
   const feed = new RSS({
     title: 'Rob Dearling\'s Blog',
