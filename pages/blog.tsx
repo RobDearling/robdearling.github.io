@@ -14,8 +14,6 @@ export async function getStaticProps() {
   };
 }
 
-import { GetStaticProps } from "next";
-
 interface PostData {
   id: string;
   date: string;

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title><![CDATA[Rob Dearling's Blog]]></title>
+        <description><![CDATA[A blog about technology, development, and other interesting topics]]></description>
+        <link>https://robdearling.github.io</link>
+        <image>
+            <url>https://robdearling.github.io/favicon.ico</url>
+            <title>Rob Dearling&apos;s Blog</title>
+            <link>https://robdearling.github.io</link>
+        </image>
+        <generator>RSS for Node</generator>
+        <lastBuildDate>Tue, 27 May 2025 11:00:37 GMT</lastBuildDate>
+        <atom:link href="https://robdearling.github.io/rss.xml" rel="self" type="application/rss+xml"/>
+        <pubDate>Tue, 27 May 2025 11:00:37 GMT</pubDate>
+        <copyright><![CDATA[Copyright 2025, Rob Dearling]]></copyright>
+        <language><![CDATA[en-US]]></language>
+        <managingEditor><![CDATA[Rob Dearling]]></managingEditor>
+        <webMaster><![CDATA[Rob Dearling]]></webMaster>
+        <ttl>1440</ttl>
+        <category><![CDATA[Technology]]></category>
+        <category><![CDATA[Development]]></category>
+        <category><![CDATA[Programming]]></category>
+        <item>
+            <title><![CDATA[Using Cloudflare R2 as a Terraform backend]]></title>
+            <description><![CDATA[When creating this website, I decided to work with a tech stack that I'm not familiar with(Within certain boundaries). Typically, while working with Terrafor...]]></description>
+            <link>https://robdearling.github.io/posts/using-r2-for-tf-state</link>
+            <guid isPermaLink="false">https://robdearling.github.io/posts/using-r2-for-tf-state</guid>
+            <dc:creator><![CDATA[Rob Dearling]]></dc:creator>
+            <pubDate>Mon, 09 Dec 2024 00:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[Building a site with technology I dont use]]></title>
+            <description><![CDATA[When building this site I decided I was going to use it as a way to learn and play with technology that I typically wouldn't use within my daily work tech st...]]></description>
+            <link>https://robdearling.github.io/posts/building-a-site-with-technology-i-dont-use</link>
+            <guid isPermaLink="false">https://robdearling.github.io/posts/building-a-site-with-technology-i-dont-use</guid>
+            <dc:creator><![CDATA[Rob Dearling]]></dc:creator>
+            <pubDate>Sun, 08 Dec 2024 00:00:00 GMT</pubDate>
+        </item>
+    </channel>
+</rss>
