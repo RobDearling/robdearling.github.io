@@ -86,13 +86,17 @@ function generateRSSFeed() {
 function generateStaticRSS() {
   const rss = generateRSSFeed();
   const publicDir = path.join(process.cwd(), 'public');
+
+  const filesToWrite = ['rss.xml', 'feed.xml'];
   
   if (!fs.existsSync(publicDir)) {
     fs.mkdirSync(publicDir, { recursive: true });
   }
-  
-  fs.writeFileSync(path.join(publicDir, 'rss.xml'), rss);
-  console.log('RSS feed generated successfully at public/rss.xml');
+
+  filesToWrite.forEach((fileName) => {
+    fs.writeFileSync(path.join(publicDir, fileName), rss);
+    console.log(`RSS feed generated successfully at public/${fileName}`);
+  });
 }
 
 generateStaticRSS();
