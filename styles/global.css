@@ -69,6 +69,7 @@ article p {
   font-size: 1rem;
   margin-top: 18px;
   margin-bottom: 18px;
+  line-height: 1.8;
 }
 
 article > h2 {
