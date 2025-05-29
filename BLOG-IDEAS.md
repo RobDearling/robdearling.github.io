@@ -2,3 +2,4 @@
 
 - What is DNSSEC?
 - Creating an image share with Azure Function Apps & Storage Accounts
+- Reverse engineering with AI
