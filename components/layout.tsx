@@ -17,6 +17,7 @@ export default function Layout({ children, home }: LayoutProps) {
     <div lang='en' className="flex flex-col min-h-screen">
       <Head>
         <link rel="icon" href="/favicon.ico" />
+        <link rel="alternate" type="application/rss+xml" title="WreckItRob RSS Feed" href="/rss.xml" />
         <meta
           name="description"
           content="Robs personal site"
