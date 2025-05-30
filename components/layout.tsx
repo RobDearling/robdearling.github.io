@@ -27,7 +27,7 @@ export default function Layout({ children, home }: LayoutProps) {
       </Head>
       <header className="container mx-auto mt-4">
         <nav className='flex justify-between mt-4 lg:mt-16 px-4 lg:px-64 xl:px-64 mb-4 text-lg'>
-          <Link href="/" id='title' className='font-bold'>WreckItRob<span className='text-sky-400'>.</span>dev</Link>        <div className="flex flex-row items-center font-semibold">
+          <Link href="/" id='title' className='font-bold group hover:text-sky-400'>WreckItRob<span className='text-sky-400 group-hover:text-white'>.</span>dev</Link>        <div className="flex flex-row items-center font-semibold">
             <Link className={`nav-item ${pathname === '/' ? 'nav-active' : ''}`} href="/">
               Home
             </Link>
