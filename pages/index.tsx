@@ -16,7 +16,7 @@ export default function Home() {
           </p>
         </div>
         <div className="mt-8 text-xl">
-          <p>I'm a 29 year old SRE, Developer & Tech tinkerer from the UK.</p>
+          <p>I'm a 30 year old SRE, Developer & Tech tinkerer from the UK.</p>
           <p className="mt-4">
             Some of my interests include software development, cloud computing,
             reverse engineering, automation, devops and security. I enjoy mostly
