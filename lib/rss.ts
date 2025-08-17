@@ -12,17 +12,17 @@ function extractDescription(content: string): string {
     .replace(/`([^`]+)`/g, '$1') // Remove code backticks
     .replace(/\n\s*\n/g, '\n') // Remove empty lines
     .trim();
-  
+
   const firstParagraph = cleanContent.split('\n')[0] || '';
-  return firstParagraph.length > 160 
+  return firstParagraph.length > 160
     ? firstParagraph.substring(0, 157) + '...'
     : firstParagraph;
 }
 
 export function generateRSSFeed() {
   const posts = getSortedPostsData();
-  const siteURL = 'https://robdearling.github.io'; // Update this to your actual domain
-  
+  const siteURL = 'https://wreckitrob.dev'; // Update this to your actual domain
+
   const feed = new RSS({
     title: 'Rob Dearling\'s Blog',
     description: 'A blog about technology, development, and other interesting topics',
@@ -44,9 +44,9 @@ export function generateRSSFeed() {
     const fullPath = path.join(postsDirectory, `${post.id}.md`);
     const fileContents = fs.readFileSync(fullPath, 'utf8');
     const matterResult = matter(fileContents);
-    
+
     const description = post.description || extractDescription(matterResult.content);
-    
+
     feed.item({
       title: post.title,
       description: description,
