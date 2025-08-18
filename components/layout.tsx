@@ -31,8 +31,7 @@ export default function Layout({ children, home }: LayoutProps) {
             <Link className={`nav-item ${pathname === '/' ? 'nav-active' : ''}`} href="/">
               Home
             </Link>
-            <Link className={`nav-item ${pathname === '/blog' ? 'nav-active' : ''}`} href="/blog">Blog</Link>
-            <Link className={`nav-item ${pathname === '/feeds' ? 'nav-active' : ''}`} href="/feeds">Feeds</Link>
+            <Link className={`nav-item ${pathname === '/blog' ? 'nav-active' : ''}`} href="/blog">Blog</Link
           </div>
         </nav>      </header>
       <main className="container mx-auto mt-32 lg:mt-32 px-4 lg:px-64 xl:px-64 mb-4 flex-grow">{children}</main>
@@ -70,7 +69,7 @@ export default function Layout({ children, home }: LayoutProps) {
                 <circle cx="5" cy="19" r="1"></circle>
               </svg>
             </a>
-          </div>        
+          </div>
           </div>
 
       </footer>
