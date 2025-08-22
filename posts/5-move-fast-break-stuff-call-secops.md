@@ -3,7 +3,9 @@ title: 'Move Fast, Break Stuff, Call Infosec'
 date: '2025-08-22'
 ---
 
-Development has lived by the mantra "move fast and break things" for years now the things breaking are cloud configurations, access controls and entire security measures with the rise of AI and "vibe coding". Vibe coding is great until someone accidentally ships your database to a public S3 bucket on the internet because they asked their agent to "make my database more structured and reusable". Developers are moving faster with AI agents and cloud providers that let you stand up infrastructure with just a few clicks. Security debt is slowly piling up.
+Development has lived by the mantra "move fast and break things" for years but now the things breaking are cloud configurations, access controls and entire security measures with the rise of AI and "vibe coding".
+
+Vibe coding is great until someone accidentally ships your database to a public S3 bucket on the internet because they asked their agent to "make my database more structured and reusable". Developers are moving faster with AI agents and cloud providers that let you stand up infrastructure with just a few clicks. Security debt is slowly piling up.
 
 ## We can't vibe code our way out of this
 
