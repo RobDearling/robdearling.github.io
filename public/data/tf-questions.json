@@ -1,0 +1,102 @@
+[
+  {
+    "question": "The first computer bug was an actual insect found in a computer",
+    "answer": true,
+    "category": "history"
+  },
+  {
+    "question": "HTML is a programming language",
+    "answer": false,
+    "category": "programming"
+  },
+  {
+    "question": "The term 'hacker' originally had a negative connotation",
+    "answer": false,
+    "category": "culture"
+  },
+  {
+    "question": "Unix was written in assembly language",
+    "answer": false,
+    "category": "systems"
+  },
+  {
+    "question": "TCP/IP has only 4 layers in its model",
+    "answer": true,
+    "category": "networking"
+  },
+  {
+    "question": "The root user on Unix systems always has UID 0",
+    "answer": true,
+    "category": "systems"
+  },
+  {
+    "question": "SQL injection is a client-side attack",
+    "answer": false,
+    "category": "security"
+  },
+  {
+    "question": "Git was created by Linus Torvalds",
+    "answer": true,
+    "category": "tools"
+  },
+  {
+    "question": "A byte always contains 8 bits",
+    "answer": false,
+    "category": "fundamentals"
+  },
+  {
+    "question": "RAM is volatile memory",
+    "answer": true,
+    "category": "hardware"
+  },
+  {
+    "question": "The movie 'Hackers' was released in 1995",
+    "answer": true,
+    "category": "culture"
+  },
+  {
+    "question": "IPv6 addresses are 64 bits long",
+    "answer": false,
+    "category": "networking"
+  },
+  {
+    "question": "A binary search requires a sorted array",
+    "answer": true,
+    "category": "algorithms"
+  },
+  {
+    "question": "HTTPS uses port 443 by default",
+    "answer": true,
+    "category": "networking"
+  },
+  {
+    "question": "Python was named after the snake species",
+    "answer": false,
+    "category": "programming"
+  },
+  {
+    "question": "In ASCII, uppercase letters have lower numeric values than lowercase",
+    "answer": true,
+    "category": "fundamentals"
+  },
+  {
+    "question": "Kernel panic is a Windows-specific error",
+    "answer": false,
+    "category": "systems"
+  },
+  {
+    "question": "The first version of Linux kernel was 0.01",
+    "answer": true,
+    "category": "history"
+  },
+  {
+    "question": "Port 22 is the default for SSH",
+    "answer": true,
+    "category": "networking"
+  },
+  {
+    "question": "Zero-day exploits are attacks that take zero days to execute",
+    "answer": false,
+    "category": "security"
+  }
+]
