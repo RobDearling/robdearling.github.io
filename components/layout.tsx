@@ -33,12 +33,12 @@ export default function Layout({ children, home }: LayoutProps) {
           <Link href="/" className="block hover:text-gray-400 transition-colors cursor-pointer">
             <pre className="text-xs leading-tight whitespace-pre">
 {`
-██╗    ██╗██████╗
-██║    ██║██╔══██╗
-██║ █╗ ██║██████╔╝
-██║███╗██║██╔══██╗
-╚███╔███╔╝██║  ██║
- ╚══╝╚══╝ ╚═╝  ╚═╝
+██████╗ ██████╗
+██╔══██╗██╔══██╗
+██████╔╝██║  ██║
+██╔══██╗██║  ██║
+██║  ██║██████╔╝
+╚═╝  ╚═╝╚═════╝
 `}
             </pre>
           </Link>
