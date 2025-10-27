@@ -184,19 +184,26 @@ export default function Riddles() {
 
   return (
     <Layout>
-    <div className="flex flex-col text-center">
-      <h4 className="">I currently have <span className="text-sky-400">{riddlesList.length}</span> riddles for you</h4>
-      
+    <div className="flex flex-col space-y-6 md:space-y-8">
+      <p className="text-sm md:text-base">I currently have <span className="font-bold">{riddlesList.length}</span> riddles for you</p>
+
       {currentRiddle ? (
-        <div>
-          <h2 className="text-4xl font-bold">{currentRiddle.question}</h2>
-          <div className="mt-8 text-sky-400">
-            {revealed && <p className="text-3xl">{currentRiddle.answer}</p>}
+        <div className="space-y-6 md:space-y-8">
+          <h2 className="text-lg md:text-2xl font-bold">{currentRiddle.question}</h2>
+          <div>
+            {revealed && <p className="text-base md:text-xl border-l-2 border-white pl-4 py-2">{currentRiddle.answer}</p>}
           </div>
-          {!revealed ? <button className="button-bg font-bold px-6 py-3 rounded-3xl" onClick={revealAnswer}>Reveal Answer</button> : null}
+          {!revealed ? (
+            <button
+              className="border border-white px-4 py-2 md:px-6 md:py-3 hover:bg-white hover:text-black transition-colors text-sm md:text-base"
+              onClick={revealAnswer}
+            >
+              [Reveal Answer]
+            </button>
+          ) : null}
         </div>
       ) : (
-        <p>Loading...</p>
+        <p className="text-sm md:text-base">Loading...</p>
       )}
     </div>
     </Layout>

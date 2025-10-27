@@ -30,15 +30,15 @@ export default function Home({ allPostsData }: HomeProps) {
         <title>{siteTitle}</title>
       </Head>
       <section>
-        <h1 className="font-bold text-2xl mb-8">BLOG POSTS</h1>
-        <ul className="space-y-6">
+        <h1 className="font-bold text-xl md:text-2xl mb-6 md:mb-8">BLOG POSTS</h1>
+        <ul className="space-y-4 md:space-y-6">
           {allPostsData.map(({ id, date, title }) => (
-            <li key={id} className="border-b border-white pb-4">
-              <Link href={`/posts/${id}`} className="text-lg hover:underline">
+            <li key={id} className="border-b border-white pb-3 md:pb-4">
+              <Link href={`/posts/${id}`} className="text-base md:text-lg hover:underline block">
                 {title}
               </Link>
               <div className="mt-1">
-                <span className="text-sm text-gray-400">
+                <span className="text-xs md:text-sm text-gray-400">
                   <Date dateString={date} />
                 </span>
               </div>

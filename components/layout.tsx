@@ -16,6 +16,7 @@ export default function Layout({ children, home }: LayoutProps) {
   return (
     <div lang='en' className="flex min-h-screen">
       <Head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="icon" href="/favicon.ico" />
         <link rel="alternate" type="application/rss+xml" title="WreckItRob RSS Feed" href="/rss.xml" />
         <meta
@@ -65,23 +66,45 @@ export default function Layout({ children, home }: LayoutProps) {
       </aside>
 
       {/* Mobile header */}
-      <div className="md:hidden w-full">
+      <div className="md:hidden w-full flex flex-col">
         <header className="p-4 border-b border-white">
           <div className="mb-4">
-            <Link href="/" className="font-bold">WR</Link>
+            <Link href="/" className="font-bold text-lg hover:text-gray-400">WRECKITROB</Link>
           </div>
-          <nav className="flex space-x-4">
-            <Link className={`nav-item ${pathname === '/' ? 'nav-active' : ''}`} href="/">
+          <nav className="flex space-x-4 text-sm">
+            <Link className={`${pathname === '/' ? 'nav-active' : ''} hover:underline`} href="/">
               HOME
             </Link>
-            <Link className={`nav-item ${pathname === '/blog' ? 'nav-active' : ''}`} href="/blog">
+            <Link className={`${pathname === '/blog' ? 'nav-active' : ''} hover:underline`} href="/blog">
               BLOG
             </Link>
           </nav>
         </header>
+
+        <main className="flex-grow p-4 sm:p-6">{children}</main>
+
+        <footer className="p-4 sm:p-6 border-t border-white text-sm">
+          <div className="flex flex-col space-y-3">
+            <div className="text-xs italic border-l-2 border-white pl-3 py-2">
+              "Information wants to be free, bandwidth wants to be cheap."
+            </div>
+            <div className="text-xs">
+              © 2025 Rob Dearling
+            </div>
+            <div className="social-icons flex-row">
+              <a href="https://github.com/RobDearling" target="_blank" rel="noopener noreferrer me" title="Github">
+                [GitHub]
+              </a>
+              <a href="/rss.xml" target="_blank" rel="noopener noreferrer" title="RSS Feed">
+                [RSS]
+              </a>
+            </div>
+          </div>
+        </footer>
       </div>
 
-      <div className="flex flex-col flex-1">
+      {/* Desktop layout */}
+      <div className="hidden md:flex md:flex-col md:flex-1">
         <main className="flex-grow p-8 md:p-16 max-w-4xl">{children}</main>
 
         <footer className="p-8 border-t border-white">
@@ -91,14 +114,6 @@ export default function Layout({ children, home }: LayoutProps) {
             </div>
             <div className="text-sm">
               © 2025 Rob Dearling
-            </div>
-            <div className="social-icons md:hidden">
-              <a href="https://github.com/RobDearling" target="_blank" rel="noopener noreferrer me" title="Github">
-                [GitHub]
-              </a>
-              <a href="/rss.xml" target="_blank" rel="noopener noreferrer" title="RSS Feed">
-                [RSS]
-              </a>
             </div>
           </div>
         </footer>

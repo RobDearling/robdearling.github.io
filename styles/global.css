@@ -73,18 +73,34 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 article p {
-  font-size: 1rem;
-  margin-top: 18px;
-  margin-bottom: 18px;
-  line-height: 1.8;
+  font-size: 0.875rem;
+  margin-top: 14px;
+  margin-bottom: 14px;
+  line-height: 1.7;
   color: #ffffff;
 }
 
+@media (min-width: 768px) {
+  article p {
+    font-size: 1rem;
+    margin-top: 18px;
+    margin-bottom: 18px;
+    line-height: 1.8;
+  }
+}
+
 article > h2 {
-  font-size: 1.5rem;
-  line-height: 2rem;
+  font-size: 1.25rem;
+  line-height: 1.75rem;
   font-weight: bold;
   color: #ffffff;
+}
+
+@media (min-width: 768px) {
+  article > h2 {
+    font-size: 1.5rem;
+    line-height: 2rem;
+  }
 }
 
 article a {
@@ -101,12 +117,21 @@ article ul {
 }
 
 article li {
-  margin-top: 5px;
-  margin-bottom: 5px;
-  margin-left: 25px;
-  font-size: 1rem;
+  margin-top: 4px;
+  margin-bottom: 4px;
+  margin-left: 20px;
+  font-size: 0.875rem;
   list-style-type: disc;
   color: #ffffff;
+}
+
+@media (min-width: 768px) {
+  article li {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-left: 25px;
+    font-size: 1rem;
+  }
 }
 
 article li::marker {
@@ -117,17 +142,35 @@ article li::marker {
 article table {
   width: 100%;
   border-collapse: collapse;
-  margin: 20px 0;
+  margin: 16px 0;
   background-color: #000000;
   border: 1px solid #ffffff;
+  display: block;
+  overflow-x: auto;
+  font-size: 0.75rem;
+}
+
+@media (min-width: 768px) {
+  article table {
+    margin: 20px 0;
+    display: table;
+    font-size: 0.875rem;
+  }
 }
 
 article th,
 article td {
-  padding: 8px 12px;
+  padding: 6px 8px;
   text-align: left;
   border: 1px solid #ffffff;
   color: #ffffff;
+}
+
+@media (min-width: 768px) {
+  article th,
+  article td {
+    padding: 8px 12px;
+  }
 }
 
 article th {
@@ -136,29 +179,62 @@ article th {
 }
 
 article td {
-  font-size: 0.95rem;
+  font-size: 0.75rem;
+}
+
+@media (min-width: 768px) {
+  article td {
+    font-size: 0.95rem;
+  }
 }
 
 pre[class*="language-"] {
   background: #000000 !important;
-  padding: 16px;
+  padding: 12px;
   border: 1px solid #ffffff;
-  margin: 20px 0px !important;
+  margin: 16px 0px !important;
+  overflow-x: auto;
+  font-size: 0.75rem;
+}
+
+@media (min-width: 768px) {
+  pre[class*="language-"] {
+    padding: 16px;
+    margin: 20px 0px !important;
+    font-size: 0.875rem;
+  }
 }
 
 #blog-content > h2 {
-  font-size: 1.5rem;
-  line-height: 2rem;
-  margin: 15px 0px;
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+  margin: 12px 0px;
   font-weight: bold;
   color: #ffffff;
 }
 
+@media (min-width: 768px) {
+  #blog-content > h2 {
+    font-size: 1.5rem;
+    line-height: 2rem;
+    margin: 15px 0px;
+  }
+}
+
 :not(pre) > code {
   background: #000000;
-  padding: 2px 8px;
+  padding: 2px 6px;
   border: 1px solid #ffffff;
   color: #ffffff;
+  font-size: 0.75rem;
+  word-break: break-word;
+}
+
+@media (min-width: 768px) {
+  :not(pre) > code {
+    padding: 2px 8px;
+    font-size: 0.875rem;
+  }
 }
 
 code[class*="language-"],
