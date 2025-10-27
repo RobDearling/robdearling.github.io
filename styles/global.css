@@ -3,22 +3,28 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+  --foreground-rgb: 255, 255, 255;
+  --background-rgb: 0, 0, 0;
 }
 
 body {
-  color: #fff;
-  background-color: #1d2228;
+  color: #ffffff;
+  background-color: #000000;
+  font-family: 'Courier New', Courier, Monaco, monospace;
+  line-height: 1.6;
+}
+
+a {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #cccccc;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: #ffffff;
 }
 
 @layer utilities {
@@ -28,41 +34,42 @@ body {
 }
 
 .nav-item {
-  padding: 2px 14px;
-  border-radius: 24px;
-  margin-top: -8px;
+  padding: 4px 8px;
+  margin: 2px 0;
+  display: block;
+  text-decoration: none;
+  color: #ffffff;
+}
+
+.nav-item:hover {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+.nav-active {
+  color: #cccccc;
 }
 
 .social-icons {
   font-size: 14px;
-  color:#535e6f
+  color: #ffffff;
+  display: flex;
+  gap: 10px;
 }
 
 .social-icons a {
-  margin-right: 10px;
-  margin-top: 25px;
-  display: inline-flex
+  display: inline-flex;
+  color: #ffffff;
+  text-decoration: none;
 }
 
 .social-icons a:hover {
-  color: #fff;
+  color: #cccccc;
 }
 
 .social-icons a svg {
-  width: 26px;
-  height: 26px;
-}
-
-.nav-item:hover {
-  background-color: #313741;
-}
-
-.nav-active {
-  background-color: #313741;
-}
-
-.button-bg {
-  background-color: #313741;
+  width: 20px;
+  height: 20px;
 }
 
 article p {
@@ -70,38 +77,40 @@ article p {
   margin-top: 18px;
   margin-bottom: 18px;
   line-height: 1.8;
-  color: #c6c6c6;
+  color: #ffffff;
 }
 
 article > h2 {
-  font-size: 2.25rem;
-  line-height: 2.5rem;
+  font-size: 1.5rem;
+  line-height: 2rem;
+  font-weight: bold;
+  color: #ffffff;
 }
 
 article a {
-	font-weight: 600;
-	color: rgb(56 189 248 / var(--tw-text-opacity, 1));
-	text-decoration: underline;
-	text-decoration-color: #313741;
-	text-decoration-thickness: 2px;
-	text-underline-offset: 5px;
+  color: #ffffff;
+  text-decoration: underline;
+}
+
+article a:hover {
+  color: #cccccc;
 }
 
 article ul {
-	margin: 15px 0px;
+  margin: 15px 0px;
 }
 
 article li {
-	margin-top: 5px;
-	margin-bottom: 5px;
-	margin-left: 25px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  margin-left: 25px;
   font-size: 1rem;
-	list-style-type: disc;
+  list-style-type: disc;
+  color: #ffffff;
 }
 
 article li::marker {
-	color: #38bdf8; /* Change this to your desired color */
-	font-size: 1.2em; /* Change this to your desired size */
+  color: #ffffff;
 }
 
 /* Table styles for markdown tables */
@@ -109,31 +118,21 @@ article table {
   width: 100%;
   border-collapse: collapse;
   margin: 20px 0;
-  background-color: #1d2228;
-  border-radius: 8px;
-  overflow: hidden;
+  background-color: #000000;
+  border: 1px solid #ffffff;
 }
 
 article th,
 article td {
-  padding: 12px 16px;
+  padding: 8px 12px;
   text-align: left;
-  border-bottom: 1px solid #313741;
+  border: 1px solid #ffffff;
+  color: #ffffff;
 }
 
 article th {
-  background-color: #313741;
-  font-weight: 600;
-  color: #38bdf8;
-  border-bottom: 2px solid #38bdf8;
-}
-
-article tr:nth-child(even) {
-  background-color: rgba(49, 55, 65, 0.3);
-}
-
-article tr:hover {
-  background-color: rgba(56, 189, 248, 0.1);
+  background-color: #000000;
+  font-weight: bold;
 }
 
 article td {
@@ -141,30 +140,31 @@ article td {
 }
 
 pre[class*="language-"] {
-  background: #313741 !important;
-  padding: 24px;
-  border-radius: 20px;
+  background: #000000 !important;
+  padding: 16px;
+  border: 1px solid #ffffff;
   margin: 20px 0px !important;
 }
 
 #blog-content > h2 {
-  font-size: 2rem;
-  line-height: 2.5rem;
+  font-size: 1.5rem;
+  line-height: 2rem;
   margin: 15px 0px;
-  font-weight: 600;
+  font-weight: bold;
+  color: #ffffff;
 }
 
 :not(pre) > code {
-	background: #313741;
-	padding: 2px 8px;
-	border-radius: 3px;
+  background: #000000;
+  padding: 2px 8px;
+  border: 1px solid #ffffff;
+  color: #ffffff;
 }
 
 code[class*="language-"],
 pre[class*="language-"] {
-  color: #c5c8c6;
-  text-shadow: 0 1px rgba(0, 0, 0, 0.3);
-  font-family: Inconsolata, Monaco, Consolas, "Courier New", Courier, monospace;
+  color: #ffffff;
+  font-family: 'Courier New', Courier, Monaco, monospace;
   direction: ltr;
   text-align: left;
   white-space: pre;
@@ -187,58 +187,51 @@ pre[class*="language-"] {
   padding: 1em;
   margin: 0.5em 0;
   overflow: auto;
-  border-radius: 0.3em;
 }
 
 :not(pre) > code[class*="language-"],
 pre[class*="language-"] {
-  background: #1d1f21;
+  background: #000000;
 }
 
 /* Inline code */
 :not(pre) > code[class*="language-"] {
   padding: 0.1em;
-  border-radius: 0.3em;
 }
 
 .token.comment,
 .token.prolog,
 .token.doctype,
 .token.cdata {
-  color: #7c7c7c;
+  color: #888888;
 }
 
 .token.punctuation {
-  color: #c5c8c6;
-}
-
-.namespace {
-  opacity: 0.7;
+  color: #ffffff;
 }
 
 .token.property,
 .token.keyword,
 .token.tag {
-  color: #96cbfe;
+  color: #ffffff;
 }
 
 .token.class-name {
-  color: #ffffb6;
-  text-decoration: underline;
+  color: #ffffff;
 }
 
 .token.boolean,
 .token.constant {
-  color: #99cc99;
+  color: #ffffff;
 }
 
 .token.symbol,
 .token.deleted {
-  color: #f92672;
+  color: #ffffff;
 }
 
 .token.number {
-  color: #ff73fd;
+  color: #ffffff;
 }
 
 .token.selector,
@@ -247,46 +240,45 @@ pre[class*="language-"] {
 .token.char,
 .token.builtin,
 .token.inserted {
-  color: #a8ff60;
+  color: #ffffff;
 }
 
 .token.variable {
-  color: #c6c5fe;
+  color: #ffffff;
 }
 
 .token.operator {
-  color: #ededed;
+  color: #ffffff;
 }
 
 .token.entity {
-  color: #ffffb6;
-  cursor: help;
+  color: #ffffff;
 }
 
 .token.url {
-  color: #96cbfe;
+  color: #ffffff;
 }
 
 .language-css .token.string,
 .style .token.string {
-  color: #87c38a;
+  color: #ffffff;
 }
 
 .token.atrule,
 .token.attr-value {
-  color: #f9ee98;
+  color: #ffffff;
 }
 
 .token.function {
-  color: #dad085;
+  color: #ffffff;
 }
 
 .token.regex {
-  color: #e9c062;
+  color: #ffffff;
 }
 
 .token.important {
-  color: #fd971f;
+  color: #ffffff;
 }
 
 .token.important,

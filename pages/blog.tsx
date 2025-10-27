@@ -1,6 +1,5 @@
 import Head from "next/head";
 import Layout, { siteTitle } from "../components/layout";
-import utilStyles from "../styles/utils.module.css";
 import { getSortedPostsData } from "../lib/posts";
 import Link from "next/link";
 import Date from "../components/date";
@@ -30,16 +29,18 @@ export default function Home({ allPostsData }: HomeProps) {
       <Head>
         <title>{siteTitle}</title>
       </Head>
-      <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
-        <h2 className="font-bold text-5xl mb-8">Blog</h2>
-        <ul className={utilStyles.list}>
+      <section>
+        <h1 className="font-bold text-2xl mb-8">BLOG POSTS</h1>
+        <ul className="space-y-6">
           {allPostsData.map(({ id, date, title }) => (
-            <li className="font-semibold mb-8 leading-none text-" key={id}>
-              <Link href={`/posts/${id}`}>{title}</Link>
-              <div>
-                <small className="font-normal text-md">
+            <li key={id} className="border-b border-white pb-4">
+              <Link href={`/posts/${id}`} className="text-lg hover:underline">
+                {title}
+              </Link>
+              <div className="mt-1">
+                <span className="text-sm text-gray-400">
                   <Date dateString={date} />
-                </small>
+                </span>
               </div>
             </li>
           ))}

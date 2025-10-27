@@ -28,8 +28,8 @@ export default function Post({ postData }: { postData: PostData }) {
         <meta property="og:description" content={postData.title}></meta>
       </Head>
       <article>
-        <h1 className='text-4xl font-bold'>{postData.title}</h1>
-        <div className='text-sky-400 mt-1'>
+        <h1 className='text-2xl font-bold'>{postData.title}</h1>
+        <div className='text-sm mt-2 text-gray-400'>
           Posted on <Date dateString={postData.date} />
         </div>
         <div id='blog-content' className='mt-8' dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
