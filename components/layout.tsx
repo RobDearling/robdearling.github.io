@@ -86,6 +86,9 @@ export default function Layout({ children, home }: LayoutProps) {
 
         <footer className="p-8 border-t border-white">
           <div className="flex flex-col space-y-4">
+            <div className="text-sm italic border-l-2 border-white pl-4 py-2">
+              "Information wants to be free, bandwidth wants to be cheap."
+            </div>
             <div className="text-sm">
               © 2025 Rob Dearling
             </div>
