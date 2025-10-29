@@ -181,7 +181,7 @@ export default function TrueFalse() {
     if (gameState.phase === 'question' && gameState.typed === questions[gameState.index]?.question) {
       setTimeout(() => inputRef.current?.focus(), 100);
     }
-  }, [gameState.phase, gameState.typed, gameState.phase === 'question' ? gameState.index : 0, questions]);
+  }, [gameState, questions]);
 
   const handleCategorySelect = () => {
     const normalized = categoryInput.toLowerCase().trim();
