@@ -6,35 +6,42 @@ type Question = {
   question: string;
   answer: boolean;
   category: string;
+  explanation: string;
 };
 
 type GameState =
   | { phase: 'boot' }
+  | { phase: 'category-select' }
   | { phase: 'question', index: number, typed: string, answered: boolean }
-  | { phase: 'feedback', correct: boolean, index: number }
+  | { phase: 'explanation', correct: boolean, index: number }
   | { phase: 'complete' };
 
 export default function TrueFalse() {
+  const [allQuestions, setAllQuestions] = useState<Question[]>([]);
   const [questions, setQuestions] = useState<Question[]>([]);
+  const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
   const [gameState, setGameState] = useState<GameState>({ phase: 'boot' });
   const [score, setScore] = useState(0);
   const [input, setInput] = useState("");
   const [bootText, setBootText] = useState<string[]>([]);
+  const [categoryInput, setCategoryInput] = useState("");
   const inputRef = useRef<HTMLInputElement>(null);
+  const categoryInputRef = useRef<HTMLInputElement>(null);
+
+  const categories = ['general knowledge', 'history', 'geography', 'food', 'technology'];
 
   // Load questions
   useEffect(() => {
     fetch('/data/tf-questions.json')
       .then(res => res.json())
       .then(data => {
-        const shuffled = [...data].sort(() => Math.random() - 0.5).slice(0, 10);
-        setQuestions(shuffled);
+        setAllQuestions(data);
       });
   }, []);
 
   // Boot sequence
   useEffect(() => {
-    if (gameState.phase === 'boot' && questions.length > 0) {
+    if (gameState.phase === 'boot' && allQuestions.length > 0) {
       const bootMessages = [
         "> INITIALIZING BRAIN.EXE...",
         "> LOADING QUESTIONS DATABASE...",
@@ -52,14 +59,14 @@ export default function TrueFalse() {
         } else {
           clearInterval(interval);
           setTimeout(() => {
-            setGameState({ phase: 'question', index: 0, typed: '', answered: false });
+            setGameState({ phase: 'category-select' });
           }, 800);
         }
       }, 400);
 
       return () => clearInterval(interval);
     }
-  }, [gameState.phase, questions]);
+  }, [gameState.phase, allQuestions]);
 
   // Typing effect for questions
   useEffect(() => {
@@ -69,23 +76,32 @@ export default function TrueFalse() {
 
       const fullText = currentQuestion.question;
       let charIndex = 0;
+      let isActive = true;
 
       const interval = setInterval(() => {
+        if (!isActive) {
+          clearInterval(interval);
+          return;
+        }
+
         if (charIndex <= fullText.length) {
-          setGameState(prev =>
-            prev.phase === 'question'
-              ? { ...prev, typed: fullText.slice(0, charIndex) }
-              : prev
-          );
+          setGameState(prev => {
+            // Only update if we're still in question phase
+            if (prev.phase === 'question' && isActive) {
+              return { ...prev, typed: fullText.slice(0, charIndex) };
+            }
+            return prev;
+          });
           charIndex++;
         } else {
           clearInterval(interval);
-          // Focus input when typing is done
-          setTimeout(() => inputRef.current?.focus(), 100);
         }
       }, 30);
 
-      return () => clearInterval(interval);
+      return () => {
+        isActive = false;
+        clearInterval(interval);
+      };
     }
   }, [gameState.phase, gameState.phase === 'question' ? gameState.index : 0, questions]);
 
@@ -116,21 +132,92 @@ export default function TrueFalse() {
       setScore(prev => prev + 1);
     }
 
-    setGameState({ phase: 'feedback', correct, index: gameState.index });
+    setGameState({ phase: 'explanation', correct, index: gameState.index });
     setInput("");
-
-    setTimeout(() => {
-      if (gameState.index + 1 < questions.length) {
-        setGameState({ phase: 'question', index: gameState.index + 1, typed: '', answered: false });
-      } else {
-        setGameState({ phase: 'complete' });
-      }
-    }, 2000);
   };
+
+  // Listen for Enter key during explanation phase
+  useEffect(() => {
+    const handleContinueFromExplanation = (e: globalThis.KeyboardEvent) => {
+      if (e.key === 'Enter' && gameState.phase === 'explanation') {
+        if (gameState.index + 1 < questions.length) {
+          setGameState({ phase: 'question', index: gameState.index + 1, typed: '', answered: false });
+        } else {
+          setGameState({ phase: 'complete' });
+        }
+      }
+    };
+
+    if (gameState.phase === 'explanation') {
+      // Add a small delay to prevent the Enter key that submitted the answer from triggering this
+      const timeoutId = setTimeout(() => {
+        window.addEventListener('keydown', handleContinueFromExplanation);
+      }, 300);
+
+      return () => {
+        clearTimeout(timeoutId);
+        window.removeEventListener('keydown', handleContinueFromExplanation);
+      };
+    }
+  }, [gameState.phase, gameState.index, questions.length]);
 
   const handleKeyDown = (e: KeyboardEvent<HTMLInputElement>) => {
     if (e.key === 'Enter') {
+      e.preventDefault();
+      e.stopPropagation();
       handleSubmit();
+    }
+  };
+
+  // Focus category input when category select phase starts
+  useEffect(() => {
+    if (gameState.phase === 'category-select') {
+      setTimeout(() => categoryInputRef.current?.focus(), 100);
+    }
+  }, [gameState.phase]);
+
+  // Focus question input when question phase is ready
+  useEffect(() => {
+    if (gameState.phase === 'question' && gameState.typed === questions[gameState.index]?.question) {
+      setTimeout(() => inputRef.current?.focus(), 100);
+    }
+  }, [gameState.phase, gameState.typed, gameState.phase === 'question' ? gameState.index : 0, questions]);
+
+  const handleCategorySelect = () => {
+    const normalized = categoryInput.toLowerCase().trim();
+
+    // Check if input is a number (1-5)
+    const categoryIndex = parseInt(normalized) - 1;
+    let selectedCat: string | null = null;
+
+    if (categoryIndex >= 0 && categoryIndex < categories.length) {
+      selectedCat = categories[categoryIndex];
+    } else {
+      // Check if input matches a category name
+      selectedCat = categories.find(cat => cat.toLowerCase() === normalized) || null;
+    }
+
+    if (!selectedCat) {
+      // Invalid input
+      setCategoryInput("");
+      return;
+    }
+
+    setSelectedCategory(selectedCat);
+    const filtered = allQuestions.filter(q => q.category === selectedCat);
+    const shuffled = [...filtered].sort(() => Math.random() - 0.5).slice(0, 10);
+    setQuestions(shuffled);
+    setCategoryInput("");
+    setTimeout(() => {
+      setGameState({ phase: 'question', index: 0, typed: '', answered: false });
+    }, 500);
+  };
+
+  const handleCategoryKeyDown = (e: KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === 'Enter') {
+      e.preventDefault();
+      e.stopPropagation();
+      handleCategorySelect();
     }
   };
 
@@ -143,12 +230,21 @@ export default function TrueFalse() {
     return "> CRASH AND BURN. BACK TO THE BASICS, SCRIPT KIDDIE.";
   };
 
+  // Click anywhere to focus appropriate input
+  const handleContainerClick = () => {
+    if (gameState.phase === 'category-select') {
+      categoryInputRef.current?.focus();
+    } else if (gameState.phase === 'question' && gameState.typed === questions[gameState.index]?.question) {
+      inputRef.current?.focus();
+    }
+  };
+
   return (
     <>
       <Head>
         <title>True/False Terminal - WreckItRob</title>
       </Head>
-      <div className="terminal-container">
+      <div className="terminal-container" onClick={handleContainerClick}>
         <style jsx>{`
           .terminal-container {
             min-height: 100vh;
@@ -158,6 +254,7 @@ export default function TrueFalse() {
             padding: 2rem;
             position: relative;
             overflow: hidden;
+            cursor: text;
           }
 
           .terminal-header {
@@ -308,6 +405,22 @@ export default function TrueFalse() {
             pointer-events: none;
           }
 
+          .category-select {
+            margin: 2rem 0;
+          }
+
+          .category-list {
+            margin: 1.5rem 0;
+            line-height: 1.6;
+          }
+
+          .category-instruction {
+            margin: 1rem 0;
+            font-size: 1.1rem;
+            font-weight: bold;
+            opacity: 0.9;
+          }
+
           @media (max-width: 768px) {
             .terminal-container {
               padding: 1rem;
@@ -347,6 +460,37 @@ export default function TrueFalse() {
             </div>
           )}
 
+          {gameState.phase === 'category-select' && (
+            <div className="category-select">
+              <div className="category-instruction">
+                {">"} SELECT KNOWLEDGE DOMAIN:
+              </div>
+              <div className="category-list">
+                {categories.map((category, idx) => (
+                  <div key={category} style={{ margin: '0.3rem 0', fontSize: '1rem' }}>
+                    {">"} [{idx + 1}] {category.toUpperCase()}
+                  </div>
+                ))}
+              </div>
+              <div style={{ marginTop: '1.5rem', fontSize: '0.9rem', opacity: 0.8 }}>
+                {">"} Enter number (1-5) or category name...
+              </div>
+              <div className="terminal-prompt" style={{ marginTop: '1rem' }}>
+                <span className="prompt-symbol">root@wreckitrob:~$</span>
+                <input
+                  ref={categoryInputRef}
+                  type="text"
+                  className="terminal-input"
+                  value={categoryInput}
+                  onChange={(e) => setCategoryInput(e.target.value)}
+                  onKeyDown={handleCategoryKeyDown}
+                  autoFocus
+                />
+                <span className="cursor">█</span>
+              </div>
+            </div>
+          )}
+
           {gameState.phase === 'question' && (
             <div>
               <div className="question-header">
@@ -377,24 +521,46 @@ export default function TrueFalse() {
             </div>
           )}
 
-          {gameState.phase === 'feedback' && (
+          {gameState.phase === 'explanation' && (
             <div>
               <div className="question-header">
                 [QUESTION {gameState.index + 1}/{questions.length}] [SCORE: {score}/{gameState.index + 1}]
               </div>
+
+              <div style={{ marginBottom: '1rem', padding: '0.75rem', backgroundColor: 'rgba(0, 255, 0, 0.05)', border: '1px solid #00ff00' }}>
+                <div style={{ fontSize: '0.9rem', opacity: 0.8, marginBottom: '0.5rem' }}>
+                  {">"} QUESTION:
+                </div>
+                <div style={{ fontSize: '1rem' }}>
+                  {questions[gameState.index]?.question}
+                </div>
+                <div style={{ fontSize: '0.9rem', marginTop: '0.5rem', opacity: 0.8 }}>
+                  {">"} CORRECT ANSWER: {questions[gameState.index]?.answer ? 'TRUE' : 'FALSE'}
+                </div>
+              </div>
+
               {gameState.correct ? (
                 <div className="feedback-message feedback-correct">
-                  {">"} ACCESS GRANTED
-                  <br />
-                  {">"} LOADING NEXT QUERY...
+                  {">"} ACCESS GRANTED - CORRECT!
                 </div>
               ) : (
                 <div className="feedback-message feedback-wrong">
                   {">"} ERROR 404: Brains not found, please try another command
-                  <br />
-                  {">"} LOADING NEXT QUERY...
                 </div>
               )}
+
+              <div style={{ margin: '1.5rem 0', padding: '1rem', borderLeft: '2px solid #00ff00', paddingLeft: '1rem' }}>
+                <div style={{ fontSize: '0.9rem', opacity: 0.8, marginBottom: '0.5rem', fontWeight: 'bold' }}>
+                  {">"} EXPLANATION:
+                </div>
+                <div style={{ fontSize: '1rem', lineHeight: '1.6' }}>
+                  {questions[gameState.index]?.explanation}
+                </div>
+              </div>
+
+              <div style={{ marginTop: '2rem', fontSize: '0.95rem', opacity: 0.9, animation: 'blink 1.5s infinite' }}>
+                {">"} Press ENTER to continue...
+              </div>
             </div>
           )}
 

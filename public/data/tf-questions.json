@@ -1,102 +1,482 @@
 [
   {
+    "question": "The Great Wall of China is visible from space with the naked eye",
+    "answer": false,
+    "category": "general knowledge",
+    "explanation": "This is a common myth. The Great Wall is not visible from space with the naked eye. Astronauts have confirmed that it's virtually impossible to see from low Earth orbit without aid."
+  },
+  {
+    "question": "Humans share approximately 60% of their DNA with bananas",
+    "answer": true,
+    "category": "general knowledge",
+    "explanation": "Humans share about 60% of their DNA with bananas, demonstrating the common ancestry of all living organisms and the fundamental building blocks of life."
+  },
+  {
+    "question": "Lightning never strikes the same place twice",
+    "answer": false,
+    "category": "general knowledge",
+    "explanation": "Lightning can and does strike the same place multiple times. The Empire State Building is struck by lightning about 100 times per year."
+  },
+  {
+    "question": "The shortest war in history lasted 38 minutes",
+    "answer": true,
+    "category": "general knowledge",
+    "explanation": "The Anglo-Zanzibar War of 1896 lasted between 38 and 45 minutes, making it the shortest war in recorded history."
+  },
+  {
+    "question": "Goldfish have a 3-second memory span",
+    "answer": false,
+    "category": "general knowledge",
+    "explanation": "Goldfish can actually remember things for months and can be trained to recognize patterns and perform tricks. The 3-second memory is a myth."
+  },
+  {
+    "question": "Mount Everest is the tallest mountain from base to peak",
+    "answer": false,
+    "category": "general knowledge",
+    "explanation": "Mauna Kea in Hawaii is taller when measured from its base on the ocean floor (about 10,200 meters) compared to Everest's 8,849 meters above sea level."
+  },
+  {
+    "question": "Sharks are older than trees",
+    "answer": true,
+    "category": "general knowledge",
+    "explanation": "Sharks have existed for about 450 million years, while trees have only been around for about 350 million years."
+  },
+  {
+    "question": "The Eiffel Tower can grow up to 6 inches taller in summer",
+    "answer": true,
+    "category": "general knowledge",
+    "explanation": "Due to thermal expansion, the iron structure expands when heated by the sun, making the tower grow up to 6 inches taller in summer."
+  },
+  {
+    "question": "A group of flamingos is called a flamboyance",
+    "answer": true,
+    "category": "general knowledge",
+    "explanation": "A group of flamingos is indeed called a flamboyance, which perfectly suits their colorful and showy appearance."
+  },
+  {
+    "question": "Octopuses have three hearts",
+    "answer": true,
+    "category": "general knowledge",
+    "explanation": "Octopuses have three hearts: two pump blood to the gills, while the third pumps blood to the rest of the body."
+  },
+  {
+    "question": "Honey never spoils",
+    "answer": true,
+    "category": "general knowledge",
+    "explanation": "Honey has an indefinite shelf life due to its low moisture content and acidic pH, which prevent bacteria and microorganisms from growing. Edible honey has been found in ancient Egyptian tombs."
+  },
+  {
+    "question": "The human body contains more bacterial cells than human cells",
+    "answer": true,
+    "category": "general knowledge",
+    "explanation": "Recent estimates suggest there are roughly equal numbers, but bacteria are much smaller. The human microbiome contains trillions of bacterial cells that are essential for health."
+  },
+  {
+    "question": "Sound travels faster in water than in air",
+    "answer": true,
+    "category": "general knowledge",
+    "explanation": "Sound travels about 4 times faster in water than in air because water molecules are closer together, allowing sound waves to propagate more quickly."
+  },
+  {
+    "question": "Penguins can be found in the Arctic",
+    "answer": false,
+    "category": "general knowledge",
+    "explanation": "Penguins are only found in the Southern Hemisphere, primarily in Antarctica. They do not live in the Arctic (North Pole)."
+  },
+  {
+    "question": "Cleopatra lived closer in time to the moon landing than to the construction of the Great Pyramid",
+    "answer": true,
+    "category": "general knowledge",
+    "explanation": "Cleopatra lived around 30 BC, about 2,500 years after the Great Pyramid was built (2560 BC) but only 2,000 years before the 1969 moon landing."
+  },
+  {
+    "question": "World War II ended in 1945",
+    "answer": true,
+    "category": "history",
+    "explanation": "World War II ended in 1945 with Germany's surrender in May and Japan's surrender in August after the atomic bombings."
+  },
+  {
+    "question": "The American Civil War began in 1861",
+    "answer": true,
+    "category": "history",
+    "explanation": "The American Civil War began on April 12, 1861, with the Confederate attack on Fort Sumter in South Carolina."
+  },
+  {
+    "question": "The Berlin Wall fell in 1989",
+    "answer": true,
+    "category": "history",
+    "explanation": "The Berlin Wall fell on November 9, 1989, marking a pivotal moment in the end of the Cold War and German reunification."
+  },
+  {
+    "question": "Julius Caesar was the first Roman Emperor",
+    "answer": false,
+    "category": "history",
+    "explanation": "Julius Caesar was a dictator, not an emperor. Augustus (Octavian) was the first Roman Emperor, taking power after Caesar's assassination."
+  },
+  {
+    "question": "The Titanic sank in 1912",
+    "answer": true,
+    "category": "history",
+    "explanation": "The RMS Titanic sank on April 15, 1912, after hitting an iceberg during its maiden voyage from Southampton to New York."
+  },
+  {
+    "question": "Napoleon Bonaparte was born in France",
+    "answer": false,
+    "category": "history",
+    "explanation": "Napoleon was born on the island of Corsica in 1769, shortly after it was transferred from Genoa to France."
+  },
+  {
+    "question": "The French Revolution started in 1789",
+    "answer": true,
+    "category": "history",
+    "explanation": "The French Revolution began in 1789 with the storming of the Bastille on July 14, now celebrated as Bastille Day."
+  },
+  {
+    "question": "Christopher Columbus discovered America in 1492",
+    "answer": true,
+    "category": "history",
+    "explanation": "Columbus reached the Americas on October 12, 1492, though he believed he had reached Asia. Vikings had visited earlier, and indigenous peoples lived there for millennia."
+  },
+  {
+    "question": "The Great Fire of London occurred in 1666",
+    "answer": true,
+    "category": "history",
+    "explanation": "The Great Fire of London raged from September 2-6, 1666, destroying much of the medieval city but remarkably killing only a few people."
+  },
+  {
+    "question": "The printing press was invented by Johannes Gutenberg",
+    "answer": true,
+    "category": "history",
+    "explanation": "Johannes Gutenberg invented the movable-type printing press around 1440, revolutionizing the spread of information and knowledge."
+  },
+  {
+    "question": "The first human landed on the moon in 1969",
+    "answer": true,
+    "category": "history",
+    "explanation": "Neil Armstrong became the first human to walk on the moon on July 20, 1969, during the Apollo 11 mission."
+  },
+  {
+    "question": "The Roman Empire fell in 476 AD",
+    "answer": true,
+    "category": "history",
+    "explanation": "The Western Roman Empire fell in 476 AD when the last emperor, Romulus Augustulus, was deposed. The Eastern Roman (Byzantine) Empire continued until 1453."
+  },
+  {
+    "question": "The Industrial Revolution started in the United States",
+    "answer": false,
+    "category": "history",
+    "explanation": "The Industrial Revolution began in Great Britain in the late 18th century before spreading to other parts of Europe and North America."
+  },
+  {
+    "question": "Queen Victoria ruled Britain for over 60 years",
+    "answer": true,
+    "category": "history",
+    "explanation": "Queen Victoria reigned for 63 years (1837-1901), the second-longest reign in British history after Queen Elizabeth II."
+  },
+  {
+    "question": "The Spanish Armada was defeated in 1588",
+    "answer": true,
+    "category": "history",
+    "explanation": "The Spanish Armada was defeated by England in 1588, with many ships destroyed by storms and English naval tactics."
+  },
+  {
+    "question": "Australia is both a country and a continent",
+    "answer": true,
+    "category": "geography",
+    "explanation": "Australia is unique as both a country and a continent, the world's smallest continent and sixth-largest country by total area."
+  },
+  {
+    "question": "The Nile is the longest river in the world",
+    "answer": true,
+    "category": "geography",
+    "explanation": "The Nile River is generally considered the world's longest river at approximately 6,650 km, though the Amazon competes for this title depending on measurement methods."
+  },
+  {
+    "question": "Russia is the largest country by land area",
+    "answer": true,
+    "category": "geography",
+    "explanation": "Russia is the world's largest country by land area, covering over 17 million square kilometers, spanning 11 time zones."
+  },
+  {
+    "question": "Africa is the largest continent",
+    "answer": false,
+    "category": "geography",
+    "explanation": "Asia is the largest continent by both area and population. Africa is the second-largest continent."
+  },
+  {
+    "question": "The capital of Canada is Toronto",
+    "answer": false,
+    "category": "geography",
+    "explanation": "The capital of Canada is Ottawa, Ontario. Toronto is Canada's largest city but not its capital."
+  },
+  {
+    "question": "The Amazon River flows through Brazil",
+    "answer": true,
+    "category": "geography",
+    "explanation": "The Amazon River flows through Brazil and several other South American countries, with the majority of its basin located in Brazil."
+  },
+  {
+    "question": "The Pacific Ocean is the largest ocean",
+    "answer": true,
+    "category": "geography",
+    "explanation": "The Pacific Ocean is the world's largest ocean, covering more than 63 million square miles and containing more than half of Earth's free water."
+  },
+  {
+    "question": "Mount Kilimanjaro is located in Kenya",
+    "answer": false,
+    "category": "geography",
+    "explanation": "Mount Kilimanjaro is located in Tanzania, not Kenya, though it's visible from the Kenyan border."
+  },
+  {
+    "question": "Iceland is located on the Arctic Circle",
+    "answer": true,
+    "category": "geography",
+    "explanation": "The Arctic Circle passes through Iceland, specifically through the small island of Grímsey off Iceland's north coast."
+  },
+  {
+    "question": "The Sahara is the largest hot desert in the world",
+    "answer": true,
+    "category": "geography",
+    "explanation": "The Sahara is the world's largest hot desert, covering about 9 million square kilometers in North Africa. Antarctica is the largest desert overall."
+  },
+  {
+    "question": "There are 7 continents",
+    "answer": true,
+    "category": "geography",
+    "explanation": "The seven continents are: Africa, Antarctica, Asia, Australia, Europe, North America, and South America."
+  },
+  {
+    "question": "The Dead Sea is the lowest point on Earth's surface",
+    "answer": true,
+    "category": "geography",
+    "explanation": "The Dead Sea shore is about 430 meters below sea level, making it Earth's lowest land elevation on the surface."
+  },
+  {
+    "question": "Greenland is larger than Australia",
+    "answer": false,
+    "category": "geography",
+    "explanation": "Australia is much larger than Greenland. Greenland appears larger on many maps due to map projection distortion."
+  },
+  {
+    "question": "The Andes mountain range is in South America",
+    "answer": true,
+    "category": "geography",
+    "explanation": "The Andes is the world's longest continental mountain range, running along South America's western edge for about 7,000 km."
+  },
+  {
+    "question": "Vatican City is the smallest country in the world",
+    "answer": true,
+    "category": "geography",
+    "explanation": "Vatican City is the world's smallest country by both area (0.44 km²) and population, located entirely within Rome, Italy."
+  },
+  {
+    "question": "Tomatoes are vegetables",
+    "answer": false,
+    "category": "food",
+    "explanation": "Botanically, tomatoes are fruits (specifically berries) because they develop from the flower and contain seeds. Legally, they're classified as vegetables in the US for trade purposes."
+  },
+  {
+    "question": "Peanuts are a type of nut",
+    "answer": false,
+    "category": "food",
+    "explanation": "Peanuts are legumes, not nuts. They grow underground in pods, similar to beans and peas, rather than on trees like true nuts."
+  },
+  {
+    "question": "Chocolate was originally consumed as a drink",
+    "answer": true,
+    "category": "food",
+    "explanation": "For most of its 4,000-year history, chocolate was consumed as a bitter beverage by ancient Mesoamerican cultures before solid chocolate was invented in the 19th century."
+  },
+  {
+    "question": "Carrots were originally purple",
+    "answer": true,
+    "category": "food",
+    "explanation": "Carrots were originally purple or white. Orange carrots were developed in the Netherlands in the 17th century, possibly to honor the Dutch royal family."
+  },
+  {
+    "question": "Strawberries are berries",
+    "answer": false,
+    "category": "food",
+    "explanation": "Botanically, strawberries are not berries - they're aggregate accessory fruits. The seeds on the outside are the actual fruits. Bananas and tomatoes are berries."
+  },
+  {
+    "question": "Bananas grow on trees",
+    "answer": false,
+    "category": "food",
+    "explanation": "Bananas grow on large herbaceous plants that look like trees but are actually giant herbs. The 'trunk' is made of tightly packed leaf bases."
+  },
+  {
+    "question": "Honey is made from flower nectar",
+    "answer": true,
+    "category": "food",
+    "explanation": "Bees collect nectar from flowers and transform it into honey through enzymatic activity and evaporation in their hives."
+  },
+  {
+    "question": "Ketchup was once sold as medicine",
+    "answer": true,
+    "category": "food",
+    "explanation": "In the 1830s, ketchup was sold as a patent medicine claiming to cure ailments like diarrhea and indigestion before becoming a popular condiment."
+  },
+  {
+    "question": "White chocolate contains cocoa solids",
+    "answer": false,
+    "category": "food",
+    "explanation": "White chocolate contains cocoa butter but no cocoa solids, which is why it's white. Some argue it shouldn't be called chocolate at all."
+  },
+  {
+    "question": "Potatoes were the first vegetable grown in space",
+    "answer": true,
+    "category": "food",
+    "explanation": "In 1995, potato plants were taken into space aboard the Space Shuttle Columbia, making them the first vegetable grown in space."
+  },
+  {
+    "question": "Apples float in water because they are 25% air",
+    "answer": true,
+    "category": "food",
+    "explanation": "Apples float because they are about 25% air by volume, which makes them less dense than water. This is why bobbing for apples works."
+  },
+  {
+    "question": "Coffee beans are actually berries",
+    "answer": true,
+    "category": "food",
+    "explanation": "Coffee 'beans' are actually the seeds of coffee cherries, which are berries. Each cherry typically contains two seeds."
+  },
+  {
+    "question": "Almonds are members of the peach family",
+    "answer": true,
+    "category": "food",
+    "explanation": "Almonds are closely related to peaches, plums, and cherries - they're all members of the Prunus family. An almond is essentially a peach pit."
+  },
+  {
+    "question": "Pizza Margherita is named after a queen",
+    "answer": true,
+    "category": "food",
+    "explanation": "Pizza Margherita was created in 1889 for Queen Margherita of Italy, with red tomatoes, white mozzarella, and green basil representing the Italian flag."
+  },
+  {
+    "question": "Coca-Cola was originally green",
+    "answer": false,
+    "category": "food",
+    "explanation": "Coca-Cola has always been brown/caramel colored due to its ingredients. The myth may come from the green glass bottles used for packaging."
+  },
+  {
     "question": "The first computer bug was an actual insect found in a computer",
     "answer": true,
-    "category": "history"
+    "category": "technology",
+    "explanation": "In 1947, a moth was found trapped in a relay of the Harvard Mark II computer. Grace Hopper taped it in the log book, coining the term 'debugging'."
   },
   {
     "question": "HTML is a programming language",
     "answer": false,
-    "category": "programming"
+    "category": "technology",
+    "explanation": "HTML (HyperText Markup Language) is a markup language used to structure web content, not a programming language as it lacks logic and algorithms."
   },
   {
     "question": "The term 'hacker' originally had a negative connotation",
     "answer": false,
-    "category": "culture"
+    "category": "technology",
+    "explanation": "The term 'hacker' originally referred to skilled programmers who could elegantly solve problems. The negative 'cracker' connotation came later with media coverage."
   },
   {
     "question": "Unix was written in assembly language",
     "answer": false,
-    "category": "systems"
+    "category": "technology",
+    "explanation": "Unix was rewritten in C programming language in 1973, making it one of the first operating systems to be written in a high-level language."
   },
   {
     "question": "TCP/IP has only 4 layers in its model",
     "answer": true,
-    "category": "networking"
-  },
-  {
-    "question": "The root user on Unix systems always has UID 0",
-    "answer": true,
-    "category": "systems"
-  },
-  {
-    "question": "SQL injection is a client-side attack",
-    "answer": false,
-    "category": "security"
+    "category": "technology",
+    "explanation": "The TCP/IP model has 4 layers: Application, Transport, Internet, and Network Access. This differs from the OSI model which has 7 layers."
   },
   {
     "question": "Git was created by Linus Torvalds",
     "answer": true,
-    "category": "tools"
+    "category": "technology",
+    "explanation": "Git was created by Linus Torvalds in 2005 to manage Linux kernel development after BitKeeper was no longer free to use."
   },
   {
     "question": "A byte always contains 8 bits",
     "answer": false,
-    "category": "fundamentals"
+    "category": "technology",
+    "explanation": "While a byte is typically 8 bits today, historically some computers used different byte sizes. An 'octet' specifically refers to 8 bits."
   },
   {
     "question": "RAM is volatile memory",
     "answer": true,
-    "category": "hardware"
+    "category": "technology",
+    "explanation": "RAM (Random Access Memory) is volatile, meaning it loses all data when power is removed, unlike non-volatile storage like hard drives or SSDs."
   },
   {
     "question": "The movie 'Hackers' was released in 1995",
     "answer": true,
-    "category": "culture"
+    "category": "technology",
+    "explanation": "The cult classic movie 'Hackers' starring Jonny Lee Miller and Angelina Jolie was released in 1995, becoming iconic in hacker culture."
   },
   {
     "question": "IPv6 addresses are 64 bits long",
     "answer": false,
-    "category": "networking"
-  },
-  {
-    "question": "A binary search requires a sorted array",
-    "answer": true,
-    "category": "algorithms"
+    "category": "technology",
+    "explanation": "IPv6 addresses are 128 bits long, written in hexadecimal. IPv4 addresses are 32 bits. IPv6 was created to solve address exhaustion."
   },
   {
     "question": "HTTPS uses port 443 by default",
     "answer": true,
-    "category": "networking"
+    "category": "technology",
+    "explanation": "HTTPS (HTTP Secure) uses TCP port 443 by default, while unencrypted HTTP uses port 80."
   },
   {
     "question": "Python was named after the snake species",
     "answer": false,
-    "category": "programming"
-  },
-  {
-    "question": "In ASCII, uppercase letters have lower numeric values than lowercase",
-    "answer": true,
-    "category": "fundamentals"
-  },
-  {
-    "question": "Kernel panic is a Windows-specific error",
-    "answer": false,
-    "category": "systems"
+    "category": "technology",
+    "explanation": "Python was named after the British comedy series 'Monty Python's Flying Circus', not the snake. Creator Guido van Rossum was a fan of the show."
   },
   {
     "question": "The first version of Linux kernel was 0.01",
     "answer": true,
-    "category": "history"
+    "category": "technology",
+    "explanation": "Linus Torvalds released Linux kernel version 0.01 in September 1991. Version 0.02 followed in October as the first publicly announced version."
   },
   {
     "question": "Port 22 is the default for SSH",
     "answer": true,
-    "category": "networking"
+    "category": "technology",
+    "explanation": "SSH (Secure Shell) uses TCP port 22 by default for secure remote administration and file transfers."
   },
   {
-    "question": "Zero-day exploits are attacks that take zero days to execute",
+    "question": "The first iPhone was released in 2007",
+    "answer": true,
+    "category": "technology",
+    "explanation": "Apple released the first iPhone on June 29, 2007, revolutionizing smartphones with its touchscreen interface."
+  },
+  {
+    "question": "USB stands for Universal Serial Bus",
+    "answer": true,
+    "category": "technology",
+    "explanation": "USB stands for Universal Serial Bus, a standard for cables and connectors for data transfer and power delivery between devices."
+  },
+  {
+    "question": "Bill Gates founded Apple",
     "answer": false,
-    "category": "security"
+    "category": "technology",
+    "explanation": "Bill Gates co-founded Microsoft. Apple was founded by Steve Jobs, Steve Wozniak, and Ronald Wayne in 1976."
+  },
+  {
+    "question": "The World Wide Web and the Internet are the same thing",
+    "answer": false,
+    "category": "technology",
+    "explanation": "The Internet is the global network infrastructure, while the World Wide Web (WWW) is a service that runs on top of it, invented by Tim Berners-Lee in 1989."
+  },
+  {
+    "question": "Google was originally called BackRub",
+    "answer": true,
+    "category": "technology",
+    "explanation": "Google's search engine was initially called 'BackRub' in 1996 because it analyzed backlinks. It was renamed Google in 1997."
+  },
+  {
+    "question": "The first computer mouse was made of wood",
+    "answer": true,
+    "category": "technology",
+    "explanation": "The first computer mouse, invented by Doug Engelbart in 1964, had a wooden shell and was much larger than modern mice."
   }
 ]
