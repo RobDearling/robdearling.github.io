@@ -9,9 +9,9 @@
             <link>https://wreckitrob.dev</link>
         </image>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Wed, 28 May 2025 10:36:24 GMT</lastBuildDate>
+        <lastBuildDate>Wed, 29 Oct 2025 09:28:49 GMT</lastBuildDate>
         <atom:link href="https://wreckitrob.dev/rss.xml" rel="self" type="application/rss+xml"/>
-        <pubDate>Wed, 28 May 2025 10:36:24 GMT</pubDate>
+        <pubDate>Wed, 29 Oct 2025 09:28:49 GMT</pubDate>
         <copyright><![CDATA[Copyright 2025, Rob Dearling]]></copyright>
         <language><![CDATA[en-US]]></language>
         <managingEditor><![CDATA[Rob Dearling]]></managingEditor>
@@ -20,6 +20,22 @@
         <category><![CDATA[Technology]]></category>
         <category><![CDATA[Development]]></category>
         <category><![CDATA[Programming]]></category>
+        <item>
+            <title><![CDATA[Move Fast, Break Stuff, Call Infosec]]></title>
+            <description><![CDATA[Development has lived by the mantra "move fast and break things" for years but now the things breaking are cloud configurations, access controls and entire s...]]></description>
+            <link>https://wreckitrob.dev/posts/5-move-fast-break-stuff-call-secops</link>
+            <guid isPermaLink="false">https://wreckitrob.dev/posts/5-move-fast-break-stuff-call-secops</guid>
+            <dc:creator><![CDATA[Rob Dearling]]></dc:creator>
+            <pubDate>Fri, 22 Aug 2025 00:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[Trusting Git Tags in Github Workflows]]></title>
+            <description><![CDATA[When you are building are you building Github workflows it is common for you to rely on multiple actions to achieve your build. A common action you may use i...]]></description>
+            <link>https://wreckitrob.dev/posts/4-trusting-git-tags</link>
+            <guid isPermaLink="false">https://wreckitrob.dev/posts/4-trusting-git-tags</guid>
+            <dc:creator><![CDATA[Rob Dearling]]></dc:creator>
+            <pubDate>Sun, 17 Aug 2025 00:00:00 GMT</pubDate>
+        </item>
         <item>
             <title><![CDATA[Cloudflare DNS Lock-In]]></title>
             <description><![CDATA[I’ve recently begun thinking about switching this website’s DNS to Azure DNS zones as a way to try out new technology. Right now, the website’s domain name i...]]></description>

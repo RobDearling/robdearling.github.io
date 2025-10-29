@@ -159,7 +159,7 @@ export default function TrueFalse() {
         window.removeEventListener('keydown', handleContinueFromExplanation);
       };
     }
-  }, [gameState.phase, gameState.index, questions.length]);
+  }, [gameState, questions.length]);
 
   const handleKeyDown = (e: KeyboardEvent<HTMLInputElement>) => {
     if (e.key === 'Enter') {
