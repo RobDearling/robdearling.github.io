@@ -51,6 +51,9 @@ export default function Layout({ children, home }: LayoutProps) {
           <Link className={`nav-item ${pathname === '/blog' ? 'nav-active' : ''}`} href="/blog">
             BLOG
           </Link>
+          <Link className={`nav-item ${pathname === '/weekly-notes' ? 'nav-active' : ''}`} href="/weekly-notes">
+            WEEKLY NOTES
+          </Link>
         </nav>
 
         <div className="mt-8 pt-8 border-t border-white">
@@ -78,6 +81,9 @@ export default function Layout({ children, home }: LayoutProps) {
             <Link className={`${pathname === '/blog' ? 'nav-active' : ''} hover:underline`} href="/blog">
               BLOG
             </Link>
+            <Link className={`${pathname === '/weekly-notes' ? 'nav-active' : ''} hover:underline`} href="/weekly-notes">
+              WEEKLY NOTES
+            </Link>
           </nav>
         </header>
 
@@ -86,7 +92,7 @@ export default function Layout({ children, home }: LayoutProps) {
         <footer className="p-4 sm:p-6 border-t border-white text-sm">
           <div className="flex flex-col space-y-3">
             <div className="text-xs italic border-l-2 border-white pl-3 py-2">
-              "Information wants to be free, bandwidth wants to be cheap."
+              "If sharing is theft, then libraries are criminal enterprises."
             </div>
             <div className="text-xs">
               © 2025 Rob Dearling
@@ -110,7 +116,7 @@ export default function Layout({ children, home }: LayoutProps) {
         <footer className="p-8 border-t border-white">
           <div className="flex flex-col space-y-4">
             <div className="text-sm italic border-l-2 border-white pl-4 py-2">
-              "Information wants to be free, bandwidth wants to be cheap."
+              "If sharing is theft, then libraries are criminal enterprises."
             </div>
             <div className="text-sm">
               © 2025 Rob Dearling

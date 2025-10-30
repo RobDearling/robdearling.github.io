@@ -4,7 +4,8 @@
     "build": "npm run generate-rss && next build",
     "dev": "next dev",
     "start": "next start",
-    "generate-rss": "node scripts/generate-rss.js"
+    "generate-rss": "node scripts/generate-rss.js",
+    "new-weekly-note": "node scripts/new-weekly-note.js"
   },
   "dependencies": {
     "date-fns": "^4.1.0",
