@@ -103,7 +103,7 @@ export default function TrueFalse() {
         clearInterval(interval);
       };
     }
-  }, [gameState.phase, gameState.phase === 'question' ? gameState.index : 0, questions]);
+  }, [gameState, questions.length]);
 
   const handleSubmit = () => {
     if (gameState.phase !== 'question') return;
