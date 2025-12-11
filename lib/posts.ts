@@ -13,6 +13,9 @@ export function getSortedPostsData() {
   type PostData = {
     id: string;
     date: string;
+    title: string;
+    headerImage?: string;
+    summary?: string;
     [key: string]: string;
   };
 

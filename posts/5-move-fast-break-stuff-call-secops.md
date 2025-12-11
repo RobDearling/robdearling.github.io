@@ -1,6 +1,8 @@
 ---
 title: 'Move Fast, Break Stuff, Call Infosec'
 date: '2025-08-22'
+headerImage: '/images/bull.jpg'
+summary: 'AI-driven development and vibe coding are accelerating productivity but creating mounting security debt. As developers move faster with AI agents, the demand for infosec professionals will surge to address the security implications of rapid, AI-assisted development.'
 ---
 
 Development has lived by the mantra "move fast and break things" for years but now the things breaking are cloud configurations, access controls and entire security measures with the rise of AI and "vibe coding".

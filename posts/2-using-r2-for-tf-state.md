@@ -1,6 +1,8 @@
 ---
 title: 'Using Cloudflare R2 as a Terraform backend'
 date: '2024-12-09'
+headerImage: '/images/r2.jpg'
+summary: 'A practical guide to setting up Cloudflare R2 as a Terraform backend. Covering bucket creation, API token configuration, and leveraging R2s S3-compatible storage for remote state management.'
 ---
 
 When creating this website, I decided to work with a tech stack that I'm not familiar with(Within certain boundaries). Typically, while working with Terraform I work with AWS or Azure. This time I chose to work with Cloudflare.

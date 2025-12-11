@@ -72,6 +72,25 @@ h1, h2, h3, h4, h5, h6 {
   height: 20px;
 }
 
+/* Blog header image with greyscale to color transition */
+.blog-header-image {
+  filter: grayscale(100%);
+  transition: filter 0.4s ease;
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.blog-header-image:hover,
+.blog-post-item:hover .blog-header-image {
+  filter: grayscale(0%);
+}
+
+/* Blog post title underline spacing */
+.blog-post-item a {
+  text-underline-offset: 4px;
+}
+
 article p {
   font-size: 0.875rem;
   margin-top: 14px;

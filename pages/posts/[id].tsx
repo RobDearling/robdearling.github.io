@@ -14,6 +14,7 @@ interface PostData {
   title: string;
   date: string;
   contentHtml: string;
+  headerImage?: string;
 }
 
 export default function Post({ postData }: { postData: PostData }) {
@@ -32,6 +33,15 @@ export default function Post({ postData }: { postData: PostData }) {
         <div className='text-xs md:text-sm mt-2 text-gray-400'>
           Posted on <Date dateString={postData.date} />
         </div>
+        {postData.headerImage && (
+          <div className='mt-6 md:mt-8'>
+            <img
+              src={postData.headerImage}
+              alt={postData.title}
+              className='blog-header-image w-full'
+            />
+          </div>
+        )}
         <div id='blog-content' className='mt-6 md:mt-8' dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
       </article>
     </Layout>

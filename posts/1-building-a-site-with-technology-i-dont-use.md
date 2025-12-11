@@ -1,6 +1,8 @@
 ---
 title: 'Building a site with technology I dont use'
 date: '2024-12-08'
+headerImage: '/images/tech.jpg'
+summary: 'Building this website as an opportunity to learn new technologies outside my usual stack. Using TailwindCSS, NextJS, and Cloudflare infrastructure, with all blog posts written in Markdown for portability and converted to HTML using Remark.'
 ---
 
 When building this site I decided I was going to use it as a way to learn and play with technology that I typically wouldn't use within my daily work tech stack.

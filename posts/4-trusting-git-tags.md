@@ -1,6 +1,8 @@
 ---
 title: 'Trusting Git Tags in Github Workflows'
 date: '2025-08-17'
+headerImage: '/images/tags.jpg'
+summary: 'Git tags are mutable and can be manipulated, making them unreliable for GitHub Actions workflows. Using commit SHAs instead of tags ensures reproducible builds and protects against supply chain attacks like the recent tj-actions/changed-files compromise.'
 ---
 
 When you are building are you building Github workflows it is common for you to rely on multiple actions to achieve your build. A common action you may use is the `actions/checkout` action, which checks out your repository so your workflow can access it.

@@ -1,6 +1,8 @@
 ---
 title: 'Cloudflare DNS Lock-In'
 date: '2025-05-27'
+headerImage: '/images/cloudlock.jpg'
+summary: 'Discovering the limitations of registering domains with Cloudflare when trying to move DNS management elsewhere. Once your domain is registered with Cloudflare, you cannot change nameservers to other providers like AWS, Azure, or Google Cloud.'
 ---
 
 I’ve recently begun thinking about switching this website’s DNS to Azure DNS zones as a way to try out new technology. Right now, the website’s domain name is registered with Cloudflare, and Cloudflare also handles its DNS settings. The same is true for my other domains.
