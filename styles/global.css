@@ -72,18 +72,22 @@ h1, h2, h3, h4, h5, h6 {
   height: 20px;
 }
 
-/* Blog header image with greyscale to color transition */
-.blog-header-image {
+/* Blog header image with greyscale to color transition on listing page only */
+.blog-post-item .blog-header-image {
   filter: grayscale(100%);
   transition: filter 0.4s ease;
+}
+
+.blog-post-item .blog-header-image:hover,
+.blog-post-item:hover .blog-header-image {
+  filter: grayscale(0%);
+}
+
+/* Blog header image on individual post pages - full color */
+.blog-header-image {
   width: 100%;
   height: auto;
   display: block;
-}
-
-.blog-header-image:hover,
-.blog-post-item:hover .blog-header-image {
-  filter: grayscale(0%);
 }
 
 /* Blog post title underline spacing */

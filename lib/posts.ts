@@ -16,7 +16,7 @@ export function getSortedPostsData() {
     title: string;
     headerImage?: string;
     summary?: string;
-    [key: string]: string;
+    [key: string]: string | undefined;
   };
 
   const allPostsData: PostData[] = fileNames.map((fileName) => {
@@ -29,7 +29,7 @@ export function getSortedPostsData() {
       id,
       date: matterResult.data.date,
       ...matterResult.data,
-    };
+    } as PostData;
   });
   return allPostsData.sort((a, b) => {
     if (a.date < b.date) {
