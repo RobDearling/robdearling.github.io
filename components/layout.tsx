@@ -30,7 +30,7 @@ export default function Layout({ children, home }: LayoutProps) {
       {/* Left sidebar navigation */}
       <aside className="w-64 p-8 border-r border-white hidden md:block">
         <div className="mb-8">
-          <Link href="/" className="block hover:text-gray-400 transition-colors cursor-pointer">
+          <Link href="/" className="block hover:text-sky-400 transition-colors cursor-pointer">
             <pre className="text-xs leading-tight whitespace-pre">
 {`
 ██████╗ ██████╗
