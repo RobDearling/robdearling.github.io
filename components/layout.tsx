@@ -95,7 +95,7 @@ export default function Layout({ children, home }: LayoutProps) {
               "If sharing is theft, then libraries are criminal enterprises."
             </div>
             <div className="text-xs">
-              © 2025 Rob Dearling
+              © {new Date().getFullYear()} Rob Dearling
             </div>
             <div className="social-icons flex-row">
               <a href="https://github.com/RobDearling" target="_blank" rel="noopener noreferrer me" title="Github">
@@ -119,7 +119,7 @@ export default function Layout({ children, home }: LayoutProps) {
               "If sharing is theft, then libraries are criminal enterprises."
             </div>
             <div className="text-sm">
-              © 2025 Rob Dearling
+              © {new Date().getFullYear()} Rob Dearling
             </div>
           </div>
         </footer>
