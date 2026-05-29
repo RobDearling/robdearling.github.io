@@ -11,8 +11,8 @@
       }
     </style>
     <pattern id="diagonal-stripes" width="64" height="64" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
-      <rect width="64" height="64" fill="black" />
-      <rect width="30" height="64" fill="white" />
+      <rect width="64" height="64" fill="#0e1214" />
+      <rect width="30" height="64" fill="#e6e2d6" />
     </pattern>
   </defs>
   <text

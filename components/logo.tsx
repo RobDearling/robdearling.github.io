@@ -20,7 +20,7 @@ function StripeRects({ stripeXs }: { stripeXs: number[] }) {
   return (
     <g transform="rotate(45 512 256)">
       {stripeXs.map((x) => (
-        <rect key={x} x={x} y="-512" width="30" height="1536" fill="white" />
+        <rect key={x} x={x} y="-512" width="30" height="1536" fill="currentColor" />
       ))}
     </g>
   );
@@ -70,7 +70,7 @@ export default function Logo({ className, idPrefix }: LogoProps) {
       <defs>
         <LetterClip id={clipPathId} />
       </defs>
-      <rect width="1024" height="512" fill="black" clipPath={`url(#${clipPathId})`} />
+      <rect width="1024" height="512" fill="var(--background-color)" clipPath={`url(#${clipPathId})`} />
       <StripeLayer
         className="wr-logo-stripes wr-logo-stripes-up"
         clipPathId={upLayerClipPathId}

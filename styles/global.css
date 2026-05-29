@@ -3,28 +3,31 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 255, 255, 255;
-  --background-rgb: 0, 0, 0;
+  --foreground-rgb: 230, 226, 214;
+  --text-color: #e6e2d6;
+  --text-muted: #c9c4b8;
+  --background-rgb: 14, 18, 20;
+  --background-color: #0e1214;
 }
 
 body {
-  color: #ffffff;
-  background-color: #000000;
+  color: var(--text-color);
+  background-color: var(--background-color);
   font-family: 'Courier New', Courier, Monaco, monospace;
   line-height: 1.6;
 }
 
 a {
-  color: #ffffff;
+  color: var(--text-color);
   text-decoration: none;
 }
 
 a:hover {
-  color: #cccccc;
+  color: var(--text-muted);
 }
 
 h1, h2, h3, h4, h5, h6 {
-  color: #ffffff;
+  color: var(--text-color);
 }
 
 @layer utilities {
@@ -38,23 +41,24 @@ h1, h2, h3, h4, h5, h6 {
   margin: 2px 0;
   display: block;
   text-decoration: none;
-  color: #ffffff;
+  color: var(--text-color);
 }
 
 .nav-item:hover {
-  background-color: #ffffff;
-  color: #000000;
+  background-color: var(--text-color);
+  color: var(--background-color);
 }
 
 .nav-active {
-  color: #cccccc;
+  color: var(--text-muted);
 }
 
 .logo-link:hover {
-  color: #ffffff;
+  color: var(--text-color);
 }
 
 .wr-logo {
+  color: var(--text-color);
   display: block;
   overflow: visible;
 }
@@ -99,19 +103,19 @@ h1, h2, h3, h4, h5, h6 {
 
 .social-icons {
   font-size: 14px;
-  color: #ffffff;
+  color: var(--text-color);
   display: flex;
   gap: 10px;
 }
 
 .social-icons a {
   display: inline-flex;
-  color: #ffffff;
+  color: var(--text-color);
   text-decoration: none;
 }
 
 .social-icons a:hover {
-  color: #cccccc;
+  color: var(--text-muted);
 }
 
 .social-icons a svg {
@@ -147,7 +151,7 @@ article p {
   margin-top: 14px;
   margin-bottom: 14px;
   line-height: 1.7;
-  color: #ffffff;
+  color: var(--text-color);
 }
 
 @media (min-width: 768px) {
@@ -163,7 +167,7 @@ article > h2 {
   font-size: 1.25rem;
   line-height: 1.75rem;
   font-weight: bold;
-  color: #ffffff;
+  color: var(--text-color);
 }
 
 @media (min-width: 768px) {
@@ -174,12 +178,12 @@ article > h2 {
 }
 
 article a {
-  color: #ffffff;
+  color: var(--text-color);
   text-decoration: underline;
 }
 
 article a:hover {
-  color: #cccccc;
+  color: var(--text-muted);
 }
 
 article ul {
@@ -192,7 +196,7 @@ article li {
   margin-left: 20px;
   font-size: 0.875rem;
   list-style-type: disc;
-  color: #ffffff;
+  color: var(--text-color);
 }
 
 @media (min-width: 768px) {
@@ -205,7 +209,7 @@ article li {
 }
 
 article li::marker {
-  color: #ffffff;
+  color: var(--text-color);
 }
 
 /* Table styles for markdown tables */
@@ -213,8 +217,8 @@ article table {
   width: 100%;
   border-collapse: collapse;
   margin: 16px 0;
-  background-color: #000000;
-  border: 1px solid #ffffff;
+  background-color: var(--background-color);
+  border: 1px solid var(--text-color);
   display: block;
   overflow-x: auto;
   font-size: 0.75rem;
@@ -232,8 +236,8 @@ article th,
 article td {
   padding: 6px 8px;
   text-align: left;
-  border: 1px solid #ffffff;
-  color: #ffffff;
+  border: 1px solid var(--text-color);
+  color: var(--text-color);
 }
 
 @media (min-width: 768px) {
@@ -244,7 +248,7 @@ article td {
 }
 
 article th {
-  background-color: #000000;
+  background-color: var(--background-color);
   font-weight: bold;
 }
 
@@ -259,9 +263,9 @@ article td {
 }
 
 pre[class*="language-"] {
-  background: #000000 !important;
+  background: var(--background-color) !important;
   padding: 12px;
-  border: 1px solid #ffffff;
+  border: 1px solid var(--text-color);
   margin: 16px 0px !important;
   overflow-x: auto;
   font-size: 0.75rem;
@@ -280,7 +284,7 @@ pre[class*="language-"] {
   line-height: 1.75rem;
   margin: 12px 0px;
   font-weight: bold;
-  color: #ffffff;
+  color: var(--text-color);
 }
 
 @media (min-width: 768px) {
@@ -292,10 +296,10 @@ pre[class*="language-"] {
 }
 
 :not(pre) > code {
-  background: #000000;
+  background: var(--background-color);
   padding: 2px 6px;
-  border: 1px solid #ffffff;
-  color: #ffffff;
+  border: 1px solid var(--text-color);
+  color: var(--text-color);
   font-size: 0.75rem;
   word-break: break-word;
 }
@@ -309,7 +313,7 @@ pre[class*="language-"] {
 
 code[class*="language-"],
 pre[class*="language-"] {
-  color: #ffffff;
+  color: var(--text-color);
   font-family: 'Courier New', Courier, Monaco, monospace;
   direction: ltr;
   text-align: left;
@@ -337,7 +341,7 @@ pre[class*="language-"] {
 
 :not(pre) > code[class*="language-"],
 pre[class*="language-"] {
-  background: #000000;
+  background: var(--background-color);
 }
 
 /* Inline code */
@@ -353,31 +357,31 @@ pre[class*="language-"] {
 }
 
 .token.punctuation {
-  color: #ffffff;
+  color: var(--text-color);
 }
 
 .token.property,
 .token.keyword,
 .token.tag {
-  color: #ffffff;
+  color: var(--text-color);
 }
 
 .token.class-name {
-  color: #ffffff;
+  color: var(--text-color);
 }
 
 .token.boolean,
 .token.constant {
-  color: #ffffff;
+  color: var(--text-color);
 }
 
 .token.symbol,
 .token.deleted {
-  color: #ffffff;
+  color: var(--text-color);
 }
 
 .token.number {
-  color: #ffffff;
+  color: var(--text-color);
 }
 
 .token.selector,
@@ -386,45 +390,45 @@ pre[class*="language-"] {
 .token.char,
 .token.builtin,
 .token.inserted {
-  color: #ffffff;
+  color: var(--text-color);
 }
 
 .token.variable {
-  color: #ffffff;
+  color: var(--text-color);
 }
 
 .token.operator {
-  color: #ffffff;
+  color: var(--text-color);
 }
 
 .token.entity {
-  color: #ffffff;
+  color: var(--text-color);
 }
 
 .token.url {
-  color: #ffffff;
+  color: var(--text-color);
 }
 
 .language-css .token.string,
 .style .token.string {
-  color: #ffffff;
+  color: var(--text-color);
 }
 
 .token.atrule,
 .token.attr-value {
-  color: #ffffff;
+  color: var(--text-color);
 }
 
 .token.function {
-  color: #ffffff;
+  color: var(--text-color);
 }
 
 .token.regex {
-  color: #ffffff;
+  color: var(--text-color);
 }
 
 .token.important {
-  color: #ffffff;
+  color: var(--text-color);
 }
 
 .token.important,

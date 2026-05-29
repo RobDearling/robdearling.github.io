@@ -33,7 +33,7 @@ export default function WeeklyNotes({ allWeeklyNotesData }: WeeklyNotesProps) {
         <h1 className="font-bold text-xl md:text-2xl mb-6 md:mb-8">WEEKLY NOTES</h1>
         <ul className="space-y-4 md:space-y-6">
           {allWeeklyNotesData.map(({ id, date, title }) => (
-            <li key={id} className="border-b border-white pb-3 md:pb-4">
+            <li key={id} className="border-b border-[var(--text-color)] pb-3 md:pb-4">
               <Link href={`/weekly-notes/${id}`} className="text-base md:text-lg hover:underline block">
                 {title}
               </Link>

@@ -191,11 +191,11 @@ export default function Riddles() {
         <div className="space-y-6 md:space-y-8">
           <h2 className="text-lg md:text-2xl font-bold">{currentRiddle.question}</h2>
           <div>
-            {revealed && <p className="text-base md:text-xl border-l-2 border-white pl-4 py-2">{currentRiddle.answer}</p>}
+            {revealed && <p className="text-base md:text-xl border-l-2 border-[var(--text-color)] pl-4 py-2">{currentRiddle.answer}</p>}
           </div>
           {!revealed ? (
             <button
-              className="border border-white px-4 py-2 md:px-6 md:py-3 hover:bg-white hover:text-black transition-colors text-sm md:text-base"
+              className="border border-[var(--text-color)] px-4 py-2 md:px-6 md:py-3 hover:bg-[var(--text-color)] hover:text-[var(--background-color)] transition-colors text-sm md:text-base"
               onClick={revealAnswer}
             >
               [Reveal Answer]

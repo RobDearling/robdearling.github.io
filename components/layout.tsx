@@ -29,7 +29,7 @@ export default function Layout({ children, home }: LayoutProps) {
       </Head>
 
       {/* Left sidebar navigation */}
-      <aside className="w-44 p-4 border-r border-white hidden md:block">
+      <aside className="w-44 p-4 border-r border-[var(--text-color)] hidden md:block">
         <div className="mb-6">
           <Link href="/" className="logo-link block cursor-pointer" aria-label="WreckItRob home">
             <Logo idPrefix="desktop-logo" className="w-36 h-auto" />
@@ -48,7 +48,7 @@ export default function Layout({ children, home }: LayoutProps) {
           </Link>
         </nav>
 
-        <div className="mt-6 pt-6 border-t border-white">
+        <div className="mt-6 pt-6 border-t border-[var(--text-color)]">
           <div className="social-icons flex-col">
             <a href="https://github.com/RobDearling" target="_blank" rel="noopener noreferrer me" title="Github">
               [GitHub]
@@ -62,7 +62,7 @@ export default function Layout({ children, home }: LayoutProps) {
 
       {/* Mobile header */}
       <div className="md:hidden w-full flex flex-col">
-        <header className="p-4 border-b border-white">
+        <header className="p-4 border-b border-[var(--text-color)]">
           <div className="mb-4">
             <Link href="/" className="logo-link inline-block" aria-label="WreckItRob home">
               <Logo idPrefix="mobile-logo" className="w-32 h-auto" />
@@ -83,9 +83,9 @@ export default function Layout({ children, home }: LayoutProps) {
 
         <main className="flex-grow p-4 sm:p-6">{children}</main>
 
-        <footer className="p-3 sm:p-4 border-t border-white text-sm">
+        <footer className="p-3 sm:p-4 border-t border-[var(--text-color)] text-sm">
           <div className="flex flex-col space-y-2">
-            <div className="text-xs italic border-l-2 border-white pl-3 py-1">
+            <div className="text-xs italic border-l-2 border-[var(--text-color)] pl-3 py-1">
               "If sharing is theft, then libraries are criminal enterprises."
             </div>
             <div className="text-xs">
@@ -107,9 +107,9 @@ export default function Layout({ children, home }: LayoutProps) {
       <div className="hidden md:flex md:flex-col md:flex-1">
         <main className="flex-grow p-8 md:p-16 max-w-4xl">{children}</main>
 
-        <footer className="p-4 border-t border-white">
+        <footer className="p-4 border-t border-[var(--text-color)]">
           <div className="flex flex-col space-y-2">
-            <div className="text-sm italic border-l-2 border-white pl-3 py-1">
+            <div className="text-sm italic border-l-2 border-[var(--text-color)] pl-3 py-1">
               "If sharing is theft, then libraries are criminal enterprises."
             </div>
             <div className="text-sm">
