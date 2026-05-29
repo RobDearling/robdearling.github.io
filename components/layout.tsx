@@ -1,6 +1,7 @@
 import Head from 'next/head';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation'
+import Logo from './logo';
 export const siteTitle = 'WreckItRob';
 
 
@@ -30,8 +31,8 @@ export default function Layout({ children, home }: LayoutProps) {
       {/* Left sidebar navigation */}
       <aside className="w-44 p-4 border-r border-white hidden md:block">
         <div className="mb-6">
-          <Link href="/" className="block transition-opacity hover:opacity-70 cursor-pointer" aria-label="WreckItRob home">
-            <img src="/images/wr-logo.svg" alt="WreckItRob" className="w-36 h-auto" />
+          <Link href="/" className="logo-link block cursor-pointer" aria-label="WreckItRob home">
+            <Logo idPrefix="desktop-logo" className="w-36 h-auto" />
           </Link>
         </div>
 
@@ -63,8 +64,8 @@ export default function Layout({ children, home }: LayoutProps) {
       <div className="md:hidden w-full flex flex-col">
         <header className="p-4 border-b border-white">
           <div className="mb-4">
-            <Link href="/" className="inline-block transition-opacity hover:opacity-70" aria-label="WreckItRob home">
-              <img src="/images/wr-logo.svg" alt="WreckItRob" className="w-32 h-auto" />
+            <Link href="/" className="logo-link inline-block" aria-label="WreckItRob home">
+              <Logo idPrefix="mobile-logo" className="w-32 h-auto" />
             </Link>
           </div>
           <nav className="flex space-x-4 text-sm">

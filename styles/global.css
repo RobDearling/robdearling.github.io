@@ -50,6 +50,53 @@ h1, h2, h3, h4, h5, h6 {
   color: #cccccc;
 }
 
+.logo-link:hover {
+  color: #ffffff;
+}
+
+.wr-logo {
+  display: block;
+  overflow: visible;
+}
+
+.wr-mark {
+  font-family: "Arial Black", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 392px;
+  font-style: italic;
+  font-weight: 900;
+  letter-spacing: -12px;
+}
+
+.wr-logo-stripes {
+  transform-box: view-box;
+  transform-origin: 0 0;
+  transition: transform 0.28s ease;
+  will-change: transform;
+}
+
+.logo-link:hover .wr-logo-stripes-up,
+.logo-link:focus-visible .wr-logo-stripes-up {
+  transform: translate(16px, -16px);
+}
+
+.logo-link:hover .wr-logo-stripes-down,
+.logo-link:focus-visible .wr-logo-stripes-down {
+  transform: translate(-16px, 16px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .wr-logo-stripes {
+    transition: none;
+  }
+
+  .logo-link:hover .wr-logo-stripes-up,
+  .logo-link:focus-visible .wr-logo-stripes-up,
+  .logo-link:hover .wr-logo-stripes-down,
+  .logo-link:focus-visible .wr-logo-stripes-down {
+    transform: none;
+  }
+}
+
 .social-icons {
   font-size: 14px;
   color: #ffffff;
