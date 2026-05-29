@@ -30,17 +30,8 @@ export default function Layout({ children, home }: LayoutProps) {
       {/* Left sidebar navigation */}
       <aside className="w-64 p-8 border-r border-white hidden md:block">
         <div className="mb-8">
-          <Link href="/" className="block hover:text-sky-400 transition-colors cursor-pointer">
-            <pre className="text-xs leading-tight whitespace-pre">
-{`
-██████╗ ██████╗
-██╔══██╗██╔══██╗
-██████╔╝██║  ██║
-██╔══██╗██║  ██║
-██║  ██║██████╔╝
-╚═╝  ╚═╝╚═════╝
-`}
-            </pre>
+          <Link href="/" className="block transition-opacity hover:opacity-70 cursor-pointer" aria-label="WreckItRob home">
+            <img src="/images/wr-logo.svg" alt="WreckItRob" className="w-44 h-auto" />
           </Link>
         </div>
 
@@ -72,7 +63,9 @@ export default function Layout({ children, home }: LayoutProps) {
       <div className="md:hidden w-full flex flex-col">
         <header className="p-4 border-b border-white">
           <div className="mb-4">
-            <Link href="/" className="font-bold text-lg hover:text-gray-400">WRECKITROB</Link>
+            <Link href="/" className="inline-block transition-opacity hover:opacity-70" aria-label="WreckItRob home">
+              <img src="/images/wr-logo.svg" alt="WreckItRob" className="w-32 h-auto" />
+            </Link>
           </div>
           <nav className="flex space-x-4 text-sm">
             <Link className={`${pathname === '/' ? 'nav-active' : ''} hover:underline`} href="/">

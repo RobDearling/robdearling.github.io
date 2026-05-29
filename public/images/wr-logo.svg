@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 512" role="img" aria-labelledby="title">
+  <title id="title">WreckItRob WR logo</title>
+  <defs>
+    <style>
+      .wr-mark {
+        font-family: "Arial Black", "Helvetica Neue", Helvetica, Arial, sans-serif;
+        font-size: 392px;
+        font-style: italic;
+        font-weight: 900;
+        letter-spacing: -12px;
+      }
+    </style>
+    <pattern id="diagonal-stripes" width="64" height="64" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+      <rect width="64" height="64" fill="black" />
+      <rect width="30" height="64" fill="white" />
+    </pattern>
+  </defs>
+  <text
+    class="wr-mark"
+    x="42"
+    y="398"
+    fill="url(#diagonal-stripes)"
+  >WR</text>
+</svg>
