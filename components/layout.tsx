@@ -28,10 +28,10 @@ export default function Layout({ children, home }: LayoutProps) {
       </Head>
 
       {/* Left sidebar navigation */}
-      <aside className="w-64 p-8 border-r border-white hidden md:block">
-        <div className="mb-8">
+      <aside className="w-44 p-4 border-r border-white hidden md:block">
+        <div className="mb-6">
           <Link href="/" className="block transition-opacity hover:opacity-70 cursor-pointer" aria-label="WreckItRob home">
-            <img src="/images/wr-logo.svg" alt="WreckItRob" className="w-44 h-auto" />
+            <img src="/images/wr-logo.svg" alt="WreckItRob" className="w-36 h-auto" />
           </Link>
         </div>
 
@@ -47,7 +47,7 @@ export default function Layout({ children, home }: LayoutProps) {
           </Link>
         </nav>
 
-        <div className="mt-8 pt-8 border-t border-white">
+        <div className="mt-6 pt-6 border-t border-white">
           <div className="social-icons flex-col">
             <a href="https://github.com/RobDearling" target="_blank" rel="noopener noreferrer me" title="Github">
               [GitHub]
@@ -82,9 +82,9 @@ export default function Layout({ children, home }: LayoutProps) {
 
         <main className="flex-grow p-4 sm:p-6">{children}</main>
 
-        <footer className="p-4 sm:p-6 border-t border-white text-sm">
-          <div className="flex flex-col space-y-3">
-            <div className="text-xs italic border-l-2 border-white pl-3 py-2">
+        <footer className="p-3 sm:p-4 border-t border-white text-sm">
+          <div className="flex flex-col space-y-2">
+            <div className="text-xs italic border-l-2 border-white pl-3 py-1">
               "If sharing is theft, then libraries are criminal enterprises."
             </div>
             <div className="text-xs">
@@ -106,9 +106,9 @@ export default function Layout({ children, home }: LayoutProps) {
       <div className="hidden md:flex md:flex-col md:flex-1">
         <main className="flex-grow p-8 md:p-16 max-w-4xl">{children}</main>
 
-        <footer className="p-8 border-t border-white">
-          <div className="flex flex-col space-y-4">
-            <div className="text-sm italic border-l-2 border-white pl-4 py-2">
+        <footer className="p-4 border-t border-white">
+          <div className="flex flex-col space-y-2">
+            <div className="text-sm italic border-l-2 border-white pl-3 py-1">
               "If sharing is theft, then libraries are criminal enterprises."
             </div>
             <div className="text-sm">
