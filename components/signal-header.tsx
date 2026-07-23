@@ -33,14 +33,14 @@ function parseColor(value: string, fallback: string) {
 
 function createField(width: number) {
   const random = seededRandom(0x574952); // "WIR"
-  const count = Math.max(22, Math.min(54, Math.round(width / 48)));
+  const count = Math.max(40, Math.min(92, Math.round(width / 30)));
   const nodes: SignalNode[] = [];
 
   for (let index = 0; index < count; index += 1) {
     const column = index / Math.max(1, count - 1);
     nodes.push({
       x: Math.min(0.97, Math.max(0.03, column + (random() - 0.5) * 0.055)),
-      y: 0.12 + random() * 0.72,
+      y: 0.08 + random() * 0.78,
       driftX: 2 + random() * 5,
       driftY: 2 + random() * 7,
       phase: random() * Math.PI * 2,
@@ -59,9 +59,9 @@ function createField(width: number) {
           candidate.y - node.y,
         ),
       }))
-      .filter(({ to, distance }) => to !== from && distance < 0.29)
+      .filter(({ to, distance }) => to !== from && distance < 0.25)
       .sort((a, b) => a.distance - b.distance)
-      .slice(0, node.kind > 0.78 ? 3 : 2);
+      .slice(0, node.kind > 0.7 ? 4 : 3);
 
     neighbours.forEach(({ to }) => {
       const low = Math.min(from, to);
@@ -72,7 +72,7 @@ function createField(width: number) {
         from: low,
         to: high,
         phase: random(),
-        pulse: random() > 0.58,
+        pulse: random() > 0.67,
       });
     });
   });
@@ -155,7 +155,7 @@ export default function SignalHeader() {
         context.moveTo(from.x, from.y);
         context.quadraticCurveTo(midX, midY, to.x, to.y);
         context.strokeStyle = ink;
-        context.globalAlpha = index % 3 === 0 ? 0.42 : 0.24;
+        context.globalAlpha = index % 4 === 0 ? 0.48 : 0.28;
         context.lineWidth = index % 4 === 0 ? 1.2 : 0.75;
         context.setLineDash(index % 5 === 0 ? [2, 4] : []);
         context.stroke();
@@ -186,7 +186,7 @@ export default function SignalHeader() {
         const point = positions[index];
         const radius = node.size + Math.sin(timestamp * 0.0007 + node.phase) * 0.35;
 
-        context.globalAlpha = node.kind > 0.82 ? 0.95 : 0.72;
+        context.globalAlpha = node.kind > 0.82 ? 0.95 : 0.78;
         context.fillStyle = ink;
 
         if (node.kind > 0.82) {
@@ -214,12 +214,12 @@ export default function SignalHeader() {
 
       // A sparse pixel field makes the clean vector network feel printed.
       context.fillStyle = ink;
-      for (let index = 0; index < 90; index += 1) {
+      for (let index = 0; index < 150; index += 1) {
         const x = (index * 83 + 19) % Math.max(width, 1);
         const y = (index * 37 + 11) % Math.max(height, 1);
         const flicker = Math.sin(timestamp * 0.0005 + index * 2.4);
         if (flicker > 0.35) {
-          context.globalAlpha = 0.08 + (flicker - 0.35) * 0.08;
+          context.globalAlpha = 0.1 + (flicker - 0.35) * 0.1;
           context.fillRect(Math.round(x), Math.round(y), 1.25, 1.25);
         }
       }
