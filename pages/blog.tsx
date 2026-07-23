@@ -3,6 +3,7 @@ import Layout, { siteTitle } from "../components/layout";
 import { getSortedPostsData } from "../lib/posts";
 import Link from "next/link";
 import Date from "../components/date";
+import DitheredImage from "../components/dithered-image";
 
 export async function getStaticProps() {
   const allPostsData = getSortedPostsData();
@@ -46,10 +47,11 @@ export default function Home({ allPostsData }: HomeProps) {
               </div>
               {headerImage && (
                 <Link href={`/posts/${id}`} className="block mb-3">
-                  <img
+                  <DitheredImage
                     src={headerImage}
                     alt={title}
-                    className='blog-header-image w-full'
+                    className="blog-header-image"
+                    frameClassName="blog-dithered-image"
                   />
                 </Link>
               )}

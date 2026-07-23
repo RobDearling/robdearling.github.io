@@ -2,6 +2,7 @@ import Head from 'next/head';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation'
 import Logo from './logo';
+import SignalHeader from './signal-header';
 export const siteTitle = 'WreckItRob';
 
 
@@ -62,6 +63,7 @@ export default function Layout({ children, home }: LayoutProps) {
 
       {/* Mobile header */}
       <div className="md:hidden w-full flex flex-col">
+        <SignalHeader />
         <header className="p-4 border-b border-[var(--text-color)]">
           <div className="mb-4">
             <Link href="/" className="logo-link inline-block" aria-label="WreckItRob home">
@@ -105,6 +107,7 @@ export default function Layout({ children, home }: LayoutProps) {
 
       {/* Desktop layout */}
       <div className="hidden md:flex md:flex-col md:flex-1">
+        <SignalHeader />
         <main className="flex-grow p-8 md:p-16 max-w-4xl">{children}</main>
 
         <footer className="p-4 border-t border-[var(--text-color)]">

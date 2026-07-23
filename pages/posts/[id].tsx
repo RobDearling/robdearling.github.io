@@ -10,6 +10,7 @@ import "prismjs/components/prism-typescript"
 import "prismjs/components/prism-bash"
 
 import React, { useEffect } from "react";
+import DitheredImage from '../../components/dithered-image';
 interface PostData {
   title: string;
   date: string;
@@ -35,10 +36,11 @@ export default function Post({ postData }: { postData: PostData }) {
         </div>
         {postData.headerImage && (
           <div className='mt-6 md:mt-8'>
-            <img
+            <DitheredImage
               src={postData.headerImage}
               alt={postData.title}
-              className='blog-header-image w-full'
+              className="blog-header-image"
+              frameClassName="blog-dithered-image"
             />
           </div>
         )}

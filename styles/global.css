@@ -123,22 +123,110 @@ h1, h2, h3, h4, h5, h6 {
   height: 20px;
 }
 
-/* Blog header image with greyscale to color transition on listing page only */
-.blog-post-item .blog-header-image {
-  filter: grayscale(100%);
-  transition: filter 0.4s ease;
+.dithered-frame {
+  position: relative;
+  overflow: hidden;
+  background: var(--background-color);
+  isolation: isolate;
 }
 
-.blog-post-item .blog-header-image:hover,
-.blog-post-item:hover .blog-header-image {
-  filter: grayscale(0%);
-}
-
-/* Blog header image on individual post pages - full color */
-.blog-header-image {
+.dithered-source {
   width: 100%;
   height: auto;
   display: block;
+  opacity: 1;
+  transition: opacity 180ms ease;
+}
+
+.dithered-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 180ms ease;
+}
+
+.dithered-frame[data-ready="true"] .dithered-source {
+  opacity: 0;
+}
+
+.dithered-frame[data-ready="true"] .dithered-canvas {
+  opacity: 1;
+}
+
+.site-signal-banner {
+  position: relative;
+  width: 100%;
+  height: 124px;
+  flex: 0 0 auto;
+  overflow: hidden;
+  isolation: isolate;
+  border-bottom: 1px solid color-mix(in srgb, var(--text-color) 24%, transparent);
+  background:
+    linear-gradient(
+      to bottom,
+      color-mix(in srgb, var(--text-color) 5%, transparent),
+      transparent 42%,
+      var(--background-color) 100%
+    ),
+    var(--background-color);
+}
+
+.site-signal-banner::after {
+  position: absolute;
+  inset: 0;
+  content: "";
+  pointer-events: none;
+  background: linear-gradient(
+    to bottom,
+    transparent 45%,
+    var(--background-color) 100%
+  );
+}
+
+.site-signal-canvas {
+  position: absolute;
+  inset: 0;
+  display: block;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  transition: opacity 240ms ease;
+}
+
+.site-signal-banner[data-ready="true"] .site-signal-canvas {
+  opacity: 1;
+}
+
+.blog-header-image,
+.blog-dithered-image {
+  width: 100%;
+}
+
+.blog-post-item .blog-dithered-image {
+  transition: transform 220ms ease;
+}
+
+.blog-post-item:hover .blog-dithered-image,
+.blog-post-item:focus-within .blog-dithered-image {
+  transform: translateY(-2px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dithered-source,
+  .dithered-canvas,
+  .site-signal-canvas,
+  .blog-post-item .blog-dithered-image {
+    transition: none;
+  }
+
+  .blog-post-item:hover .blog-dithered-image,
+  .blog-post-item:focus-within .blog-dithered-image {
+    transform: none;
+  }
 }
 
 /* Blog post title underline spacing */
