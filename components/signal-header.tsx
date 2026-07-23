@@ -124,14 +124,14 @@ export default function SignalHeader() {
     };
 
     const nodePosition = (node: SignalNode, time: number) => ({
-      x: node.x * width + Math.sin(time * 0.00016 + node.phase) * node.driftX,
-      y: node.y * height + Math.cos(time * 0.00012 + node.phase * 1.7) * node.driftY,
+      x: node.x * width + Math.sin(time * 0.00048 + node.phase) * node.driftX,
+      y: node.y * height + Math.cos(time * 0.00036 + node.phase * 1.7) * node.driftY,
     });
 
     const draw = (timestamp: number) => {
       animationFrame = 0;
       if (stopped || !visible) return;
-      if (!reducedMotion && timestamp - lastFrame < 50) {
+      if (!reducedMotion && timestamp - lastFrame < 33) {
         animationFrame = requestAnimationFrame(draw);
         return;
       }
@@ -164,7 +164,7 @@ export default function SignalHeader() {
         context.stroke();
 
         if (edge.pulse) {
-          const progress = (timestamp / 7200 + edge.phase) % 1;
+          const progress = (timestamp / 2600 + edge.phase) % 1;
           const inverse = 1 - progress;
           const pulseX = inverse * inverse * from.x
             + 2 * inverse * progress * midX
@@ -187,7 +187,7 @@ export default function SignalHeader() {
       context.setLineDash([]);
       field.nodes.forEach((node, index) => {
         const point = positions[index];
-        const radius = node.size + Math.sin(timestamp * 0.0007 + node.phase) * 0.35;
+        const radius = node.size + Math.sin(timestamp * 0.0018 + node.phase) * 0.35;
 
         context.globalAlpha = node.kind > 0.82 ? 0.95 : 0.78;
         context.fillStyle = ink;
@@ -220,7 +220,7 @@ export default function SignalHeader() {
       for (let index = 0; index < 150; index += 1) {
         const x = (index * 83 + 19) % Math.max(width, 1);
         const y = (index * 37 + 11) % Math.max(height, 1);
-        const flicker = Math.sin(timestamp * 0.0005 + index * 2.4);
+        const flicker = Math.sin(timestamp * 0.0015 + index * 2.4);
         if (flicker > 0.35) {
           context.globalAlpha = 0.1 + (flicker - 0.35) * 0.1;
           context.fillRect(Math.round(x), Math.round(y), 1.25, 1.25);
