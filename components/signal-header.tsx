@@ -38,9 +38,12 @@ function createField(width: number) {
 
   for (let index = 0; index < count; index += 1) {
     const column = index / Math.max(1, count - 1);
+    const verticalBand = index % 4;
     nodes.push({
-      x: Math.min(0.97, Math.max(0.03, column + (random() - 0.5) * 0.055)),
-      y: 0.08 + random() * 0.78,
+      // Extend beyond the canvas so paths enter through both side borders.
+      x: -0.04 + column * 1.08 + (random() - 0.5) * 0.045,
+      // Stagger four overlapping bands to keep the full banner populated.
+      y: 0.045 + verticalBand * 0.245 + random() * 0.135,
       driftX: 2 + random() * 5,
       driftY: 2 + random() * 7,
       phase: random() * Math.PI * 2,
@@ -59,7 +62,7 @@ function createField(width: number) {
           candidate.y - node.y,
         ),
       }))
-      .filter(({ to, distance }) => to !== from && distance < 0.25)
+      .filter(({ to, distance }) => to !== from && distance < 0.28)
       .sort((a, b) => a.distance - b.distance)
       .slice(0, node.kind > 0.7 ? 4 : 3);
 

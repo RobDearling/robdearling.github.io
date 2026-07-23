@@ -175,18 +175,6 @@ h1, h2, h3, h4, h5, h6 {
     var(--background-color);
 }
 
-.site-signal-banner::after {
-  position: absolute;
-  inset: 0;
-  content: "";
-  pointer-events: none;
-  background: linear-gradient(
-    to bottom,
-    transparent 62%,
-    var(--background-color) 100%
-  );
-}
-
 .site-signal-canvas {
   position: absolute;
   inset: 0;
