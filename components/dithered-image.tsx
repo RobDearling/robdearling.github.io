@@ -69,7 +69,8 @@ const fragmentShaderSource = `
     float shimmer = sin(u_time * 1.35 + hash(cell * 0.27) * 6.28318) * 0.045;
     threshold = clamp(threshold + (drift * 0.13 + shimmer) * movement, 0.01, 0.99);
 
-    float ink = step(threshold, gray);
+    // Dark source marks become ink; bright source backgrounds stay transparent.
+    float ink = 1.0 - step(threshold, gray);
     float edgeAlpha = 1.0;
 
     if (u_edgeMode < 0.5) {
