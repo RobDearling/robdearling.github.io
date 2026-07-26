@@ -8,6 +8,7 @@
   --text-muted: #c9c4b8;
   --background-rgb: 14, 18, 20;
   --background-color: #0e1214;
+  --dither-ink: #e8d5b7;
 }
 
 body {

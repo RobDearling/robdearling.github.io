@@ -28,72 +28,83 @@ const fragmentShaderSource = `
   precision highp float;
 
   uniform sampler2D u_image;
-  uniform sampler2D u_pattern;
   uniform vec2 u_textureScale;
   uniform vec2 u_textureOffset;
+  uniform vec2 u_resolution;
   uniform vec3 u_ink;
+  uniform vec3 u_background;
   uniform float u_time;
-  uniform float u_dotScale;
   uniform float u_edgeMode;
 
   varying vec2 v_uv;
 
   float hash(vec2 p) {
     vec3 p3 = fract(vec3(p.xyx) * 0.1031);
-    p3 += dot(p3, p3.yzx + 31.32);
+    p3 += dot(p3, p3.yzx + 33.33);
     return fract((p3.x + p3.y) * p3.z);
   }
 
-  float softenedNoise(vec2 cell, float time) {
+  float animatedNoise(vec2 p, float time) {
     float frame = floor(time);
     float phase = smoothstep(0.0, 1.0, fract(time));
-    return mix(hash(cell + frame), hash(cell + frame + 1.0), phase);
+    return mix(hash(p + frame), hash(p + frame + 1.0), phase);
+  }
+
+  float atkinsonThreshold(vec2 pos) {
+    int x = int(mod(pos.x, 4.0));
+    int y = int(mod(pos.y, 4.0));
+    int index = y * 4 + x;
+    float thresholds[16];
+    thresholds[0] = 0.0;    thresholds[1] = 12.0;  thresholds[2] = 3.0;   thresholds[3] = 15.0;
+    thresholds[4] = 8.0;    thresholds[5] = 4.0;   thresholds[6] = 11.0;  thresholds[7] = 7.0;
+    thresholds[8] = 2.0;    thresholds[9] = 14.0;  thresholds[10] = 1.0;  thresholds[11] = 13.0;
+    thresholds[12] = 10.0;  thresholds[13] = 6.0;  thresholds[14] = 9.0;  thresholds[15] = 5.0;
+    for (int i = 0; i < 16; i++) {
+      if (i == index) return thresholds[i] / 16.0;
+    }
+    return 0.0;
   }
 
   void main() {
     vec2 sampleUv = u_textureOffset + v_uv * u_textureScale;
     vec4 source = texture2D(u_image, sampleUv);
     float gray = dot(source.rgb, vec3(0.299, 0.587, 0.114));
+    vec2 uv = gl_FragCoord.xy / u_resolution;
+    float fade = 1.0;
 
-    // Compress the source into a bold, printable tonal range.
-    gray = smoothstep(0.06, 0.9, gray);
-    gray = clamp(gray * 1.12 - 0.06, 0.0, 1.0);
-
-    vec2 cell = floor(gl_FragCoord.xy / u_dotScale);
-    vec2 patternUv = (mod(cell, 4.0) + 0.5) / 4.0;
-    float threshold = texture2D(u_pattern, patternUv).r;
-
-    // Only the lighter tones move, keeping shadows stable and legible.
-    float movement = smoothstep(0.12, 0.72, gray);
-    float drift = softenedNoise(cell * 0.19, u_time * 0.42) - 0.5;
-    float shimmer = sin(u_time * 1.35 + hash(cell * 0.27) * 6.28318) * 0.045;
-    threshold = clamp(threshold + (drift * 0.13 + shimmer) * movement, 0.01, 0.99);
-
-    // These illustrations are composed on dark backgrounds. Keep those
-    // shadows transparent and turn only the brighter detail into ink.
-    float ink = step(threshold, gray);
-    float edgeAlpha = 1.0;
-
+    // Match the reference's noisy proportional edge fade.
     if (u_edgeMode < 0.5) {
-      float nearestEdge = min(min(v_uv.x, 1.0 - v_uv.x), min(v_uv.y, 1.0 - v_uv.y));
-      float raggedness = (hash(cell * 0.37) - 0.5) * 0.075;
-      edgeAlpha = smoothstep(0.012, 0.13 + raggedness, nearestEdge);
+      float edgeNoise = hash(gl_FragCoord.xy * 0.5) * 0.15;
+      float fadeLeft = smoothstep(0.0, 0.1 + edgeNoise, uv.x);
+      float fadeRight = smoothstep(0.0, 0.1 + edgeNoise, 1.0 - uv.x);
+      float fadeBottom = smoothstep(0.0, 0.1 + edgeNoise, uv.y);
+      float fadeTop = smoothstep(0.0, 0.1 + edgeNoise, 1.0 - uv.y);
+      fade = fadeLeft * fadeRight * fadeBottom * fadeTop;
     } else if (u_edgeMode < 1.5) {
-      float raggedness = (hash(cell * 0.31) - 0.5) * 0.09;
-      edgeAlpha = smoothstep(0.0, 0.55 + raggedness, v_uv.y);
+      float edgeNoise = hash(gl_FragCoord.xy * 0.5) * 0.15;
+      fade = smoothstep(0.0, 0.1 + edgeNoise, uv.y);
     }
 
-    float alpha = ink * edgeAlpha * source.a;
-    gl_FragColor = vec4(u_ink, alpha);
+    gray *= fade;
+    gray = clamp(gray * 1.2 - 0.1, 0.0, 1.0);
+
+    float threshold = atkinsonThreshold(gl_FragCoord.xy);
+    vec2 noiseCoord = gl_FragCoord.xy * 0.15;
+    float noise = animatedNoise(noiseCoord, u_time) - 0.5;
+    float flicker = 0.08 * sin(u_time * 2.0 + hash(gl_FragCoord.xy * 0.2) * 6.28);
+    float effectIntensity = smoothstep(0.05, 0.3, gray);
+    float animatedThreshold = clamp(
+      threshold + 0.1 + (noise * 0.15 + flicker) * effectIntensity,
+      0.001,
+      0.999
+    );
+    float inkAlpha = step(animatedThreshold, gray) * source.a;
+
+    // Flatten onto the known frame background. Mobile WebKit can otherwise
+    // composite transparent WebGL pixels against white.
+    gl_FragColor = vec4(mix(u_background, u_ink, inkAlpha), 1.0);
   }
 `;
-
-const thresholdPattern = new Uint8Array([
-  0, 136, 34, 170,
-  204, 68, 238, 102,
-  51, 187, 17, 153,
-  255, 119, 221, 85,
-]);
 
 function compileShader(
   gl: WebGLRenderingContext,
@@ -223,37 +234,22 @@ export default function DitheredImage({
       gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, image);
       gl.uniform1i(gl.getUniformLocation(program, 'u_image'), 0);
 
-      const patternTexture = gl.createTexture();
-      gl.activeTexture(gl.TEXTURE1);
-      gl.bindTexture(gl.TEXTURE_2D, patternTexture);
-      gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.REPEAT);
-      gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.REPEAT);
-      gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.NEAREST);
-      gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.NEAREST);
-      gl.texImage2D(
-        gl.TEXTURE_2D,
-        0,
-        gl.LUMINANCE,
-        4,
-        4,
-        0,
-        gl.LUMINANCE,
-        gl.UNSIGNED_BYTE,
-        thresholdPattern,
-      );
-      gl.uniform1i(gl.getUniformLocation(program, 'u_pattern'), 1);
-
       const timeLocation = gl.getUniformLocation(program, 'u_time');
-      const dotScaleLocation = gl.getUniformLocation(program, 'u_dotScale');
       const textureScaleLocation = gl.getUniformLocation(program, 'u_textureScale');
       const textureOffsetLocation = gl.getUniformLocation(program, 'u_textureOffset');
+      const resolutionLocation = gl.getUniformLocation(program, 'u_resolution');
       const edgeModeLocation = gl.getUniformLocation(program, 'u_edgeMode');
       const inkLocation = gl.getUniformLocation(program, 'u_ink');
+      const backgroundLocation = gl.getUniformLocation(program, 'u_background');
 
       const ink = parseHexColor(
-        getComputedStyle(document.documentElement).getPropertyValue('--text-color'),
+        getComputedStyle(document.documentElement).getPropertyValue('--dither-ink'),
+      );
+      const background = parseHexColor(
+        getComputedStyle(document.documentElement).getPropertyValue('--background-color'),
       );
       gl.uniform3f(inkLocation, ink[0], ink[1], ink[2]);
+      gl.uniform3f(backgroundLocation, background[0], background[1], background[2]);
       gl.uniform1f(edgeModeLocation, edgeModeValue(edgeFade));
 
       const resize = () => {
@@ -269,6 +265,7 @@ export default function DitheredImage({
           canvas.height = height;
           gl.viewport(0, 0, width, height);
         }
+        gl.uniform2f(resolutionLocation, width, height);
 
         let scaleX = 1;
         let scaleY = 1;
@@ -290,14 +287,14 @@ export default function DitheredImage({
 
         gl.uniform2f(textureScaleLocation, scaleX, scaleY);
         gl.uniform2f(textureOffsetLocation, offsetX, offsetY);
-        gl.uniform1f(dotScaleLocation, Math.max(1.35, pixelRatio * 1.15));
       };
 
+      const startTime = performance.now();
       const draw = (timestamp: number) => {
         animationFrame = 0;
         if (stopped || !visible) return;
 
-        if (timestamp - lastFrame < 70 && animate && !reducedMotion) {
+        if (timestamp - lastFrame < 100 && animate && !reducedMotion) {
           animationFrame = requestAnimationFrame(draw);
           return;
         }
@@ -305,7 +302,7 @@ export default function DitheredImage({
         lastFrame = timestamp;
         resize();
         gl.clear(gl.COLOR_BUFFER_BIT);
-        gl.uniform1f(timeLocation, timestamp / 1000);
+        gl.uniform1f(timeLocation, (timestamp - startTime) / 2000);
         gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
         frame.dataset.ready = 'true';
 
