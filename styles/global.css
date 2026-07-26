@@ -188,6 +188,44 @@ h1, h2, h3, h4, h5, h6 {
   opacity: 1;
 }
 
+.mobile-site-header {
+  position: relative;
+  height: 184px;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.mobile-site-header > .site-signal-banner {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  height: 100%;
+}
+
+.mobile-site-header::after {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  content: "";
+  pointer-events: none;
+  background: linear-gradient(
+    to bottom,
+    transparent 24%,
+    color-mix(in srgb, var(--background-color) 78%, transparent) 58%,
+    var(--background-color) 76%
+  );
+}
+
+.mobile-site-header-content {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 14px 16px 16px;
+}
+
 .blog-header-image,
 .blog-dithered-image {
   width: 100%;

@@ -63,24 +63,26 @@ export default function Layout({ children, home }: LayoutProps) {
 
       {/* Mobile header */}
       <div className="md:hidden w-full flex flex-col">
-        <SignalHeader />
-        <header className="p-4 border-b border-[var(--text-color)]">
-          <div className="mb-4">
-            <Link href="/" className="logo-link inline-block" aria-label="WreckItRob home">
-              <Logo idPrefix="mobile-logo" className="w-32 h-auto" />
-            </Link>
+        <header className="mobile-site-header border-b border-[var(--text-color)]">
+          <SignalHeader />
+          <div className="mobile-site-header-content">
+            <div className="mb-3">
+              <Link href="/" className="logo-link inline-block" aria-label="WreckItRob home">
+                <Logo idPrefix="mobile-logo" className="w-28 h-auto" />
+              </Link>
+            </div>
+            <nav className="flex space-x-4 text-sm">
+              <Link className={`${pathname === '/' ? 'nav-active' : ''} hover:underline`} href="/">
+                HOME
+              </Link>
+              <Link className={`${pathname === '/blog' ? 'nav-active' : ''} hover:underline`} href="/blog">
+                BLOG
+              </Link>
+              <Link className={`${pathname === '/weekly-notes' ? 'nav-active' : ''} hover:underline`} href="/weekly-notes">
+                WEEKLY NOTES
+              </Link>
+            </nav>
           </div>
-          <nav className="flex space-x-4 text-sm">
-            <Link className={`${pathname === '/' ? 'nav-active' : ''} hover:underline`} href="/">
-              HOME
-            </Link>
-            <Link className={`${pathname === '/blog' ? 'nav-active' : ''} hover:underline`} href="/blog">
-              BLOG
-            </Link>
-            <Link className={`${pathname === '/weekly-notes' ? 'nav-active' : ''} hover:underline`} href="/weekly-notes">
-              WEEKLY NOTES
-            </Link>
-          </nav>
         </header>
 
         <main className="flex-grow p-4 sm:p-6">{children}</main>
