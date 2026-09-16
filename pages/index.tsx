@@ -7,7 +7,7 @@ export default function Home() {
       <Head><title>{siteTitle}</title></Head>
       <section>
         <h1 className="page-title">Rob Dearling</h1>
-        <p className="page-intro">SRE, developer, and technology tinkerer from the UK.</p>
+        <p className="page-intro">Architect, developer, and technology tinkerer from the UK.</p>
         <div className="home-copy">
           <p>I work on systems that need to stay useful when things get complicated.</p>
           <p>My interests include software development, cloud computing, reverse engineering, automation, DevOps, and security. I enjoy exploring new technologies and solving technical problems.</p>
