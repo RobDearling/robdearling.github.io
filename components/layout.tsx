@@ -2,8 +2,6 @@ import Head from 'next/head';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { ReactNode } from 'react';
-import Logo from './logo';
-import SignalHeader from './signal-header';
 
 export const siteTitle = 'WreckItRob';
 
@@ -25,11 +23,10 @@ export default function Layout({ children }: LayoutProps) {
         <meta name="twitter:card" content="summary_large_image" />
       </Head>
 
-      <div className="site-signal-wrap"><SignalHeader /></div>
       <header className="site-header">
-        <Link href="/" className="site-identity" aria-label="WreckItRob home">
-          <Logo idPrefix="site-logo" className="site-logo" />
-          <span>Rob Dearling’s notes on cloud, code, and making things work.</span>
+        <Link href="/" className="site-identity" aria-label="Rob Dearling home">
+          <span className="site-name">Rob Dearling</span>
+          <span className="site-byline">Notes on cloud, code, and making things work.</span>
         </Link>
         <nav aria-label="Primary navigation">
           <Link aria-current={pathname === '/' ? 'page' : undefined} href="/">Home</Link>
