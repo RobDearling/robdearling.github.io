@@ -1,69 +1,43 @@
-import Layout from '../../components/layout';
 import Head from 'next/head';
-import { getAllPostIds, getPostData } from '../../lib/posts';
-import Date from '../../components/date';
-import Prism from "prismjs";
+import Prism from 'prismjs';
+import React, { useEffect } from 'react';
 import 'prismjs/components/prism-hcl';
-import "prismjs/components/prism-bash"
-import "prismjs/components/prism-shell-session"
-import "prismjs/components/prism-typescript"
-import "prismjs/components/prism-bash"
+import 'prismjs/components/prism-bash';
+import 'prismjs/components/prism-shell-session';
+import 'prismjs/components/prism-typescript';
+import Layout from '../../components/layout';
+import Date from '../../components/date';
+import { getAllPostIds, getPostData } from '../../lib/posts';
 
-import React, { useEffect } from "react";
-import DitheredImage from '../../components/dithered-image';
 interface PostData {
   title: string;
   date: string;
   contentHtml: string;
-  headerImage?: string;
 }
 
 export default function Post({ postData }: { postData: PostData }) {
-  useEffect(() => {
-    Prism.highlightAll();
-  }, []);
+  useEffect(() => { Prism.highlightAll(); }, []);
+
   return (
     <Layout>
       <Head>
         <title>{postData.title}</title>
-        <meta name="description" content={postData.title}></meta>
-        <meta property="og:description" content={postData.title}></meta>
+        <meta name="description" content={postData.title} />
+        <meta property="og:description" content={postData.title} />
       </Head>
       <article>
-        <h1 className='text-xl md:text-2xl font-bold'>{postData.title}</h1>
-        <div className='text-xs md:text-sm mt-2 text-gray-400'>
-          Posted on <Date dateString={postData.date} />
-        </div>
-        {postData.headerImage && (
-          <div className='mt-6 md:mt-8'>
-            <DitheredImage
-              src={postData.headerImage}
-              alt={postData.title}
-              className="blog-header-image"
-              frameClassName="blog-dithered-image"
-            />
-          </div>
-        )}
-        <div id='blog-content' className='mt-6 md:mt-8' dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
+        <h1 className="page-title">{postData.title}</h1>
+        <p className="article-meta">Published <Date dateString={postData.date} /></p>
+        <div id="blog-content" className="article-content" dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
       </article>
     </Layout>
   );
 }
 
 export async function getStaticPaths() {
-  const paths = getAllPostIds();
-  return {
-    paths,
-    fallback: false,
-  };
+  return { paths: getAllPostIds(), fallback: false };
 }
 
 export async function getStaticProps({ params }: { params: { id: string } }) {
-  const postData = await getPostData(params.id);
-
-  return {
-    props: {
-      postData,
-    },
-  };
+  return { props: { postData: await getPostData(params.id) } };
 }
