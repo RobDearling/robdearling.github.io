@@ -1,6 +1,11 @@
 import { parseISO, format } from 'date-fns';
 
-export default function Date({ dateString }: { dateString: string }) {
+interface DateProps {
+  dateString: string;
+  className?: string;
+}
+
+export default function Date({ dateString, className }: DateProps) {
   const date = parseISO(dateString);
-  return <time className='text-[var(--text-muted)]' dateTime={dateString}>{format(date, 'LLLL d, yyyy')}</time>;
+  return <time className={className} dateTime={dateString}>{format(date, 'LLLL d, yyyy')}</time>;
 }

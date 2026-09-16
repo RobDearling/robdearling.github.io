@@ -1,65 +1,41 @@
-import Head from "next/head";
-import Layout, { siteTitle } from "../components/layout";
-import { getSortedPostsData } from "../lib/posts";
-import Link from "next/link";
-import Date from "../components/date";
-import DitheredImage from "../components/dithered-image";
+import Head from 'next/head';
+import Link from 'next/link';
+import Layout, { siteTitle } from '../components/layout';
+import Date from '../components/date';
+import { getSortedPostsData } from '../lib/posts';
 
 export async function getStaticProps() {
-  const allPostsData = getSortedPostsData();
-  return {
-    props: {
-      allPostsData,
-    },
-  };
+  return { props: { allPostsData: getSortedPostsData() } };
 }
 
 interface PostData {
   id: string;
   date: string;
   title: string;
-  headerImage?: string;
   summary?: string;
 }
 
-interface HomeProps {
+interface BlogProps {
   allPostsData: PostData[];
 }
 
-export default function Home({ allPostsData }: HomeProps) {
+export default function Blog({ allPostsData }: BlogProps) {
   return (
-    <Layout home>
-      <Head>
-        <title>{siteTitle}</title>
-      </Head>
+    <Layout>
+      <Head><title>Writing — {siteTitle}</title></Head>
       <section>
-        <h1 className="font-bold text-xl md:text-2xl mb-6 md:mb-8">BLOG POSTS</h1>
-        <ul className="space-y-4 md:space-y-6">
-          {allPostsData.map(({ id, date, title, headerImage, summary }) => (
-            <li key={id} className="blog-post-item pb-3 md:pb-4">
-              <div className="flex justify-between items-baseline mb-4">
-                <Link href={`/posts/${id}`} className="text-lg md:text-xl underline hover:underline">
-                  {title}
-                </Link>
-                <span className="text-xs text-gray-400 ml-4">
-                  <Date dateString={date} />
-                </span>
+        <h1 className="page-title">Writing</h1>
+        <p className="page-intro">Notes on reliability, cloud platforms, automation, security, and whatever I am learning in public.</p>
+        <ul className="entry-list">
+          {allPostsData.map(({ id, date, title, summary }) => (
+            <li key={id}>
+              <div className="entry-row">
+                <Date className="entry-date" dateString={date} />
+                <div>
+                  <h2 className="entry-title"><Link href={`/posts/${id}`}>{title}</Link></h2>
+                  {summary ? <p className="entry-summary">{summary}</p> : null}
+                </div>
               </div>
-              {headerImage && (
-                <Link href={`/posts/${id}`} className="block mb-3">
-                  <DitheredImage
-                    src={headerImage}
-                    alt={title}
-                    className="blog-header-image"
-                    frameClassName="blog-dithered-image"
-                  />
-                </Link>
-              )}
-              {summary && (
-                <p className="text-xs text-gray-400 mt-3">
-                  {summary}
-                </p>
-              )}
             </li>
           ))}
         </ul>
