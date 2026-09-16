@@ -11,6 +11,14 @@ for (const path of ['/', '/blog', '/weekly-notes']) {
   });
 }
 
+test('masthead uses text instead of animated or graphic branding', async ({ page }) => {
+  await page.goto('/');
+
+  const header = page.locator('header.site-header');
+  await expect(header.getByRole('link', { name: /rob dearling/i })).toContainText('Rob Dearling');
+  await expect(header.locator('canvas, svg')).toHaveCount(0);
+});
+
 test('keyboard focus is visible on the first navigation link', async ({ page }) => {
   await page.goto('/');
   await page.keyboard.press('Tab');
