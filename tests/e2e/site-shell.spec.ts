@@ -11,6 +11,18 @@ for (const path of ['/', '/blog', '/weekly-notes']) {
   });
 }
 
+for (const path of ['/blog', '/weekly-notes']) {
+  test(`${path} uses the full site width for the index and entry`, async ({ page }) => {
+    await page.goto(path);
+    const headerWidth = await page.locator('.site-header').evaluate(header => getComputedStyle(header).width);
+    await expect(page.locator('.page-intro')).toHaveCSS('width', headerWidth);
+    await expect(page.locator('.entry-list')).toHaveCSS('width', headerWidth);
+
+    await page.locator('.entry-title a').first().click();
+    await expect(page.locator('.article-content')).toHaveCSS('width', headerWidth);
+  });
+}
+
 test('the masthead trace belongs to the page and respects reduced motion', async ({ page }) => {
   await page.emulateMedia({ reducedMotion: 'reduce' });
   await page.goto('/');
