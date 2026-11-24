@@ -42,6 +42,8 @@ Copilot PR Description:
 > - TTL 3600 -> 300
 > - Change on api.example.com
 
+![What does that even mean?](/images/brooklyn99-brooklyn-nine-nine.gif)
+
 The summary tells me what changed, but not why. Without that context, it hasn't answered the question blocking my review. Reading the description took me longer than just checking the diff that gave me the same value.
 
 The next natural step I would take is to ask the engineer who raised the PR why we are making the change. We are now context switching, and I'll likely come back to the PR later today or tomorrow.
