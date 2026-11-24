@@ -28,11 +28,11 @@ export default function WeeklyNote({ weeklyNoteData }: { weeklyNoteData: WeeklyN
         <meta property="og:description" content={weeklyNoteData.title}></meta>
       </Head>
       <article>
-        <h1 className='text-xl md:text-2xl font-bold'>{weeklyNoteData.title}</h1>
-        <div className='text-xs md:text-sm mt-2 text-gray-400'>
+        <h1 className="page-title">{weeklyNoteData.title}</h1>
+        <p className="article-meta">
           Week of <Date dateString={weeklyNoteData.date} />
-        </div>
-        <div id='blog-content' className='mt-6 md:mt-8' dangerouslySetInnerHTML={{ __html: weeklyNoteData.contentHtml }} />
+        </p>
+        <div id="blog-content" className="article-content" dangerouslySetInnerHTML={{ __html: weeklyNoteData.contentHtml }} />
       </article>
     </Layout>
   );

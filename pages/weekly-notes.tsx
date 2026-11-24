@@ -29,7 +29,7 @@ export default function WeeklyNotes({ allWeeklyNotesData }: WeeklyNotesProps) {
           {allWeeklyNotesData.map(({ id, date, title }) => (
             <li key={id}>
               <div className="entry-row">
-                <Date className="entry-date" dateString={date} />
+                <Date className="entry-date" dateString={date} compact />
                 <h2 className="entry-title"><Link href={`/weekly-notes/${id}`}>{title}</Link></h2>
               </div>
             </li>

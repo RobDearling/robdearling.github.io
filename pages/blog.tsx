@@ -30,7 +30,7 @@ export default function Blog({ allPostsData }: BlogProps) {
           {allPostsData.map(({ id, date, title, summary }) => (
             <li key={id}>
               <div className="entry-row">
-                <Date className="entry-date" dateString={date} />
+                <Date className="entry-date" dateString={date} compact />
                 <div>
                   <h2 className="entry-title"><Link href={`/posts/${id}`}>{title}</Link></h2>
                   {summary ? <p className="entry-summary">{summary}</p> : null}
