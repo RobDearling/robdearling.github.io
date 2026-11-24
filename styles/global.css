@@ -7,9 +7,9 @@
   --surface-muted: #f0ede5;
   --ink: #202b35;
   --ink-muted: #5e6366;
-  --link: #1d5fa7;
   --accent: #9d442c;
-  --link-hover: var(--accent);
+  --link: var(--accent);
+  --link-hover: #74321f;
   --rule: #d7d4ca;
   --trace: #788a93;
   --code-surface: #edf2f6;
