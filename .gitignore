@@ -10,6 +10,10 @@
 
 # next.js
 /.next/
+/studio/.next/
+/studio/.next-e2e/
+/studio/tsconfig.tsbuildinfo
+/test-results/
 /out/
 
 # production

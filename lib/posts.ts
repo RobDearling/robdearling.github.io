@@ -5,6 +5,9 @@ import { remark } from 'remark';
 import html from 'remark-html';
 import remarkPrism from 'remark-prism';
 import remarkGfm from 'remark-gfm';
+import { randomUUID } from 'node:crypto';
+import { loadExplainer } from './explainers/files';
+import { slugPattern, type Explainer } from './explainers/document';
 
 const postsDirectory = path.join(process.cwd(), 'posts');
 
@@ -56,16 +59,46 @@ export async function getPostData(id: string) {
   const fileContents = fs.readFileSync(fullPath, 'utf8');
   const matterResult = matter(fileContents);
 
-  const processedContent = await remark()
+  const processor = remark()
     .use(remarkGfm)
     .use(html)
-    .use(remarkPrism as any)
-    .process(matterResult.content);
-  const contentHtml = processedContent.toString();
+    .use(remarkPrism as any);
+  const tree = processor.parse(matterResult.content);
+  const documents = new Map<string, Explainer>();
+  const embeds: SceneBlock[] = [];
+  // Replace only standalone Markdown fences. Render the whole tree together so
+  // reference links and footnotes can still cross an embedded figure.
+  const marker = 'explainer-' + randomUUID();
+  tree.children = tree.children.map(node => {
+    if (node.type !== 'code' || node.lang !== 'explainer') return node;
+    const reference = node.value.trim();
+    try {
+      const parts = reference.split('/');
+      if (parts.length !== 2 || !parts.every(part => slugPattern.test(part))) throw new Error('Expected explainer-slug/scene-id');
+      const [slug, sceneId] = parts;
+      const doc = documents.get(slug) ?? loadExplainer(path.join(process.cwd(), 'explainers'), slug);
+      if (!doc.scenes.some(scene => scene.id === sceneId)) throw new Error('Scene does not exist');
+      documents.set(slug, doc);
+      embeds.push({ kind: 'scene', slug, sceneId });
+      return { type: 'paragraph', children: [{ type: 'text', value: marker }] };
+    } catch (error) {
+      throw new Error(`Post "${id}", explainer "${reference}": ${(error as Error).message}`);
+    }
+  });
+  const rendered = processor.stringify(await processor.run(tree) as typeof tree);
+  const blocks: PostBlock[] = [];
+  rendered.split('<p>' + marker + '</p>').forEach((fragment, i) => {
+    if (i) blocks.push(embeds[i - 1]);
+    if (fragment.trim()) blocks.push({ kind: 'html', html: fragment });
+  });
 
   return {
     id,
-    contentHtml,
+    blocks,
+    documents: Object.fromEntries(documents),
     ...matterResult.data,
   };
 }
+
+type SceneBlock = { kind: 'scene'; slug: string; sceneId: string };
+export type PostBlock = SceneBlock | { kind: 'html'; html: string };

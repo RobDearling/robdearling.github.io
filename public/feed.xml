@@ -9,10 +9,10 @@
             <link>https://wreckitrob.dev</link>
         </image>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Wed, 29 Oct 2025 09:39:08 GMT</lastBuildDate>
+        <lastBuildDate>Tue, 24 Nov 2026 16:23:00 GMT</lastBuildDate>
         <atom:link href="https://wreckitrob.dev/rss.xml" rel="self" type="application/rss+xml"/>
-        <pubDate>Wed, 29 Oct 2025 09:39:08 GMT</pubDate>
-        <copyright><![CDATA[Copyright 2025, Rob Dearling]]></copyright>
+        <pubDate>Tue, 24 Nov 2026 16:23:00 GMT</pubDate>
+        <copyright><![CDATA[Copyright 2026, Rob Dearling]]></copyright>
         <language><![CDATA[en-US]]></language>
         <managingEditor><![CDATA[Rob Dearling]]></managingEditor>
         <webMaster><![CDATA[Rob Dearling]]></webMaster>
@@ -20,6 +20,30 @@
         <category><![CDATA[Technology]]></category>
         <category><![CDATA[Development]]></category>
         <category><![CDATA[Programming]]></category>
+        <item>
+            <title><![CDATA[Make your pull request easy to approve]]></title>
+            <description><![CDATA[Recently I've been thinking about why PRs take so long to merge. As we adopt agentic engineering, we're generating more code and raising more PRs. But genera...]]></description>
+            <link>https://wreckitrob.dev/posts/7-make-your-pull-request-easy-to-approve</link>
+            <guid isPermaLink="false">https://wreckitrob.dev/posts/7-make-your-pull-request-easy-to-approve</guid>
+            <dc:creator><![CDATA[Rob Dearling]]></dc:creator>
+            <pubDate>Tue, 24 Nov 2026 00:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[Where does a request go with an Azure Private Endpoint?]]></title>
+            <description><![CDATA[An application uploads a blob to fieldnotes.blob.core.windows.net. You give the storage account a private endpoint. The connection string stays exactly the s...]]></description>
+            <link>https://wreckitrob.dev/posts/7-azure-private-endpoints</link>
+            <guid isPermaLink="false">https://wreckitrob.dev/posts/7-azure-private-endpoints</guid>
+            <dc:creator><![CDATA[Rob Dearling]]></dc:creator>
+            <pubDate>Tue, 24 Nov 2026 00:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[Communication Doesn’t Have a Compiler]]></title>
+            <description><![CDATA[I didn’t do well at school.]]></description>
+            <link>https://wreckitrob.dev/posts/6-communication-doesnt-have-a-compiler</link>
+            <guid isPermaLink="false">https://wreckitrob.dev/posts/6-communication-doesnt-have-a-compiler</guid>
+            <dc:creator><![CDATA[Rob Dearling]]></dc:creator>
+            <pubDate>Fri, 18 Sep 2026 00:00:00 GMT</pubDate>
+        </item>
         <item>
             <title><![CDATA[Move Fast, Break Stuff, Call Infosec]]></title>
             <description><![CDATA[Development has lived by the mantra "move fast and break things" for years but now the things breaking are cloud configurations, access controls and entire s...]]></description>

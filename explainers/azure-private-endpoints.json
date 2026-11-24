@@ -1,0 +1,366 @@
+{
+  "version": 1,
+  "title": "Azure Private Endpoints",
+  "nodes": [
+    {
+      "id": "laptop",
+      "label": "Laptop",
+      "detail": "External client",
+      "symbol": "client",
+      "x": 100,
+      "y": 75
+    },
+    {
+      "id": "vm",
+      "label": "Azure VM",
+      "detail": "10.42.1.4",
+      "symbol": "server",
+      "x": 100,
+      "y": 297
+    },
+    {
+      "id": "dns",
+      "label": "DNS resolver",
+      "detail": "Name resolution",
+      "symbol": "dns",
+      "x": 355,
+      "y": 92
+    },
+    {
+      "id": "zone",
+      "label": "Private DNS zone",
+      "detail": "A → 10.42.1.5",
+      "symbol": "dns",
+      "x": 355,
+      "y": 202
+    },
+    {
+      "id": "public",
+      "label": "Public endpoint",
+      "detail": "Public IP",
+      "symbol": "network",
+      "x": 615,
+      "y": 91
+    },
+    {
+      "id": "nic",
+      "label": "Endpoint NIC",
+      "detail": "10.42.1.5",
+      "symbol": "service",
+      "x": 355,
+      "y": 297
+    },
+    {
+      "id": "blob",
+      "label": "Blob Storage",
+      "detail": "fieldnotes / blob",
+      "symbol": "database",
+      "x": 615,
+      "y": 297
+    }
+  ],
+  "boundaries": [
+    {
+      "id": "vnet",
+      "label": "VNet · application subnet",
+      "x": 12,
+      "y": 247,
+      "width": 427,
+      "height": 126
+    }
+  ],
+  "connections": [
+    {
+      "id": "laptop-dns",
+      "from": "laptop",
+      "to": "dns",
+      "label": "Laptop queries DNS",
+      "kind": "lookup",
+      "via": [
+        {
+          "x": 224,
+          "y": 66
+        }
+      ]
+    },
+    {
+      "id": "dns-laptop",
+      "from": "dns",
+      "to": "laptop",
+      "label": "DNS replies to laptop",
+      "kind": "lookup",
+      "via": [
+        {
+          "x": 222,
+          "y": 126
+        }
+      ]
+    },
+    {
+      "id": "vm-dns",
+      "from": "vm",
+      "to": "dns",
+      "label": "VM queries DNS",
+      "kind": "lookup",
+      "via": [
+        {
+          "x": 167,
+          "y": 188
+        }
+      ]
+    },
+    {
+      "id": "dns-vm",
+      "from": "dns",
+      "to": "vm",
+      "label": "DNS replies to VM",
+      "kind": "lookup",
+      "via": [
+        {
+          "x": 229,
+          "y": 196
+        }
+      ]
+    },
+    {
+      "id": "dns-zone",
+      "from": "dns",
+      "to": "zone",
+      "label": "Resolve alias in private zone",
+      "kind": "lookup"
+    },
+    {
+      "id": "laptop-public",
+      "from": "laptop",
+      "to": "public",
+      "label": "Internet to public endpoint",
+      "kind": "flow",
+      "via": [
+        {
+          "x": 100,
+          "y": 18
+        },
+        {
+          "x": 615,
+          "y": 18
+        }
+      ]
+    },
+    {
+      "id": "vm-public",
+      "from": "vm",
+      "to": "public",
+      "label": "Azure backbone to public endpoint",
+      "kind": "flow",
+      "via": [
+        {
+          "x": 198,
+          "y": 152
+        },
+        {
+          "x": 540,
+          "y": 152
+        }
+      ]
+    },
+    {
+      "id": "vm-nic",
+      "from": "vm",
+      "to": "nic",
+      "label": "HTTPS to 10.42.1.5",
+      "kind": "flow"
+    },
+    {
+      "id": "public-blob",
+      "from": "public",
+      "to": "blob",
+      "label": "Public endpoint to Blob Storage",
+      "kind": "flow"
+    },
+    {
+      "id": "nic-blob",
+      "from": "nic",
+      "to": "blob",
+      "label": "Private Link to Blob Storage",
+      "kind": "flow"
+    }
+  ],
+  "scenes": [
+    {
+      "id": "public-endpoint",
+      "title": "Reach the public endpoint",
+      "description": "Send the same upload from two different networks.",
+      "scenarios": [
+        {
+          "id": "external",
+          "label": "External laptop",
+          "steps": [
+            {
+              "caption": "The laptop asks its resolver for fieldnotes.blob.core.windows.net.",
+              "active": [
+                "laptop-dns"
+              ],
+              "hidden": [
+                "nic",
+                "vm",
+                "vnet",
+                "zone"
+              ]
+            },
+            {
+              "caption": "DNS sends a public IP address back to the client. The storage request has yet to leave the client.",
+              "active": [
+                "dns-laptop"
+              ],
+              "hidden": [
+                "nic",
+                "vm",
+                "vnet",
+                "zone"
+              ]
+            },
+            {
+              "caption": "The laptop sends HTTPS traffic over the public internet to the storage service’s public endpoint.",
+              "active": [
+                "laptop-public",
+                "public-blob"
+              ],
+              "hidden": [
+                "nic",
+                "vm",
+                "vnet",
+                "zone"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "azure-vm",
+          "label": "Azure VM",
+          "steps": [
+            {
+              "caption": "The VM asks its resolver for fieldnotes.blob.core.windows.net.",
+              "active": [
+                "vm-dns"
+              ],
+              "hidden": [
+                "nic",
+                "laptop",
+                "zone"
+              ]
+            },
+            {
+              "caption": "DNS sends a public IP address back to the client. The storage request has yet to leave the client.",
+              "active": [
+                "dns-vm"
+              ],
+              "hidden": [
+                "nic",
+                "laptop",
+                "zone"
+              ]
+            },
+            {
+              "caption": "The VM opens an HTTPS connection to the public IP. Azure carries the traffic to Storage over its backbone.",
+              "active": [
+                "vm-public",
+                "public-blob"
+              ],
+              "hidden": [
+                "nic",
+                "laptop",
+                "zone"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "private-dns",
+      "title": "Follow the private address",
+      "description": "Trace a DNS lookup and one upload from inside the linked virtual network.",
+      "scenarios": [
+        {
+          "id": "linked-vnet",
+          "label": "Linked VNet",
+          "steps": [
+            {
+              "caption": "The VM asks for fieldnotes.blob.core.windows.net, the same hostname it used before.",
+              "active": [
+                "vm-dns"
+              ],
+              "hidden": [
+                "laptop",
+                "vm-public"
+              ]
+            },
+            {
+              "caption": "DNS follows the CNAME to fieldnotes.privatelink.blob.core.windows.net. The linked private zone supplies the A record for 10.42.1.5.",
+              "active": [
+                "dns-zone"
+              ],
+              "hidden": [
+                "laptop",
+                "vm-public"
+              ]
+            },
+            {
+              "caption": "The resolver returns 10.42.1.5 to the VM. That address belongs to the endpoint interface inside the subnet.",
+              "active": [
+                "dns-vm"
+              ],
+              "hidden": [
+                "laptop",
+                "vm-public"
+              ]
+            },
+            {
+              "caption": "The VM starts HTTPS to 10.42.1.5. Private Link delivers the request to the blob service on the storage account.",
+              "active": [
+                "vm-nic",
+                "nic-blob"
+              ],
+              "hidden": [
+                "laptop",
+                "vm-public"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "experiment",
+      "title": "Where will this upload land?",
+      "description": "Choose a client and a DNS configuration. Step through your prediction.",
+      "model": "azure-blob-dns",
+      "scenarios": [
+        {
+          "id": "trial",
+          "label": "Trial",
+          "steps": [
+            {
+              "caption": "Start a fresh lookup.",
+              "active": [],
+              "hidden": [],
+              "cue": "query"
+            },
+            {
+              "caption": "Read the reply before opening a connection.",
+              "active": [],
+              "hidden": [],
+              "cue": "answer"
+            },
+            {
+              "caption": "Trace the HTTPS request.",
+              "active": [],
+              "hidden": [],
+              "cue": "connect"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
